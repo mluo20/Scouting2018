@@ -56,6 +56,14 @@ body {
 	margin-top: 50px;
 }
 
+#main .page {
+	display: none;
+}
+
+#main #prematch {
+	display: block;
+}
+
 #footer {
 	margin-top: 50px;
 	margin-bottom: 50px

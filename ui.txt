@@ -1,0 +1,14 @@
+going to be everything preloaded with a bunch of tabs and next button
+
+load into the team name and alliance and stuff
+
+then load into a second page in auton and teleop
+
+review before submit
+
+separate data into columns
+
+progress bar at the top
+
+timer: make it as obvious as possible, have a bar at the top with the timer
+start stop

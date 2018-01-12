@@ -1,5 +1,3 @@
-document.getElementById("defaultOpen").click();
-
 function nextPage(page) {
 	// Declare all variables
     var i, pagecontent, nextButtons;
@@ -12,4 +10,11 @@ function nextPage(page) {
 
     // Show the current tab, and add an "active" class to the button that opened the tab
     document.getElementById(page).style.display = "block";
+}
+
+function addReview() {
+	reviewbuttons = document.getElementsByClassName("review");
+    for (i = 0; i < reviewbuttons.length; i++) {
+        reviewbuttons[i].style.display = "block";
+    }
 }

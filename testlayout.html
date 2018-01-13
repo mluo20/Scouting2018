@@ -37,11 +37,11 @@
 
 		<ul id="progressbar">
 		    <li class="active">Prematch</li>
-		    <li>Auton</li>
-		    <li>Teleop</li>
-		    <li>Post match</li>
-		    <li>Results</li>
-		  </ul>
+		    <li id="auton">Auton</li>
+		    <li id="teleop">Teleop</li>
+		    <li id="postmatch">Post match</li>
+		    <li id="review">Review</li>
+		</ul>
 		<div id="prematch" class="page">
 
 			<h2>Prematch</h2>
@@ -50,7 +50,7 @@
 				<input type="number" name="matchnum" id="matchnum">
 				<label for="teamnum">Team Number:</label>
 				<input type="number" name="teamnum" id="teamnum"><br>
-				<input type="radio" name="alliance" value="blue" id="blue"><label for="blue">Blue Alliance</label><br>
+				<input type="radio" name="alliance" value="blue" id="blue" checked><label for="blue">Blue Alliance</label><br>
 				<input type="radio" name="alliance" value="red" id="red"><label for="red">Red Alliance</label><br>
 			</div>
 

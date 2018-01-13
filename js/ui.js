@@ -1,8 +1,20 @@
 function nextPage(page) {
 	// Declare all variables
     var i, pagecontent, nextButtons;
+ 
+    // Get all elements with class="tabcontent" and hide them
+    pagecontent = document.getElementsByClassName("page");
 
-	var progressbar = document.getElementById("progressbar").children;
+    var pageindex = 0;
+    for (i = 0; i < pagecontent.length; i++) {
+        pagecontent[i].style.display = "none";
+        if (pagecontent[i].id == page) {
+    		pageindex = i;
+    	}
+    }
+
+    //adds active tags according what page the thing is on
+    var progressbar = document.getElementById("progressbar").children;
 
     for (i = 0; i < progressbar.length; i++) {
     	progressbar[i].classList.remove("active")
@@ -10,21 +22,13 @@ function nextPage(page) {
 
     progressbar[0].classList.add("active");
 
-    // Get all elements with class="tabcontent" and hide them
-    pagecontent = document.getElementsByClassName("page");
-    for (i = 0; i < pagecontent.length; i++) {
-        pagecontent[i].style.display = "none";
+
+    for (i = 1; i <= pageindex; i++) {
+    	progressbar[i].classList.add("active");
     }
 
-    for (i = 0; i < pagecontent.length; i++) {
-    	if (i == 0) {continue;}
-    	progressbar[i].className += "active";
-    	if (pagecontent[i].id == page) {break;};
-    }
-
-    // Show the current tab, and add an "active" class to the button that opened the tab
- 
-    document.getElementById(page).style.display = "block";
+    //shows current page
+    pagecontent[pageindex].style.display = "block"; 
 
 }
 

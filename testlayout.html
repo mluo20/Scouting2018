@@ -171,7 +171,13 @@
 			<h2>Teleop</h2>
 
 			<div class="row form-row">
-			<p>Add Timer</p>
+			 <span id="stopwatch">00:00:00</span>
+			<p>
+                <input type='button' value='Play/Pause' onclick='Example1.Timer.toggle();' >
+			    <input type='button' value='Stop/Reset' onclick='Example1.resetStopwatch();' >
+            </p>
+			<br/>
+
 			</div>
 
 			<div class="row form-row">

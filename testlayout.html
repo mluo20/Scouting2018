@@ -54,11 +54,14 @@
 					<label for="teamnum">Team Number:</label>
 					<input type="number" name="teamnum" id="teamnum">
 				</div>
-				Alliance:
-				<div>
+
+				<div class="selectgroup">
+					Alliance:
+				</div>
+				<div class="selectgroup">
 					<label for="blue"><input type="radio" name="alliance" value="blue" id="blue" checked>Blue Alliance</label>
 				</div>
-				<div>
+				<div class="selectgroup">
 					<label for="red"><input type="radio" name="alliance" value="red" id="red">Red Alliance</label>
 				</div>
 			</div>
@@ -68,7 +71,28 @@
 
 		</div>
 
-		<div id="auton" class="page">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus hendrerit feugiat risus pharetra scelerisque. Sed ut metus scelerisque, viverra enim ut, auctor quam. Phasellus a placerat elit, at dapibus magna. Pellentesque tincidunt nec mauris sit amet vestibulum. Phasellus vestibulum nunc id efficitur facilisis. Donec a eros a magna consequat tempus. In mattis ultrices neque, ut ornare augue tristique a. Etiam aliquam scelerisque nisi ac molestie. Donec nisl nisl, sollicitudin vitae tincidunt quis, sollicitudin quis elit. Sed vestibulum sollicitudin mauris, sit amet consectetur leo fermentum a. Proin facilisis, quam vel ornare rutrum, leo nisl tincidunt orci, id placerat arcu sem quis enim. Morbi venenatis massa sagittis purus pulvinar, non vehicula urna ultrices.
+		<div id="auton" class="page">
+			<h2>Autonomous</h2>
+
+			<div class="selectgroup">
+				Cross baseline?
+			</div>
+			<div class="selectgroup">
+				<label for="baseline1"><input type="radio" name="baseline" value="1" id="baseline1" checked>Yes</label>
+			</div>
+			<div class="selectgroup">
+				<label for="baseline2"><input type="radio" name="baseline" value="0" id="baseline2">No</label>
+			</div>
+
+			<div class="selectgroup">
+				Switch?
+			</div>
+			<div class="selectgroup">
+				<label for="switch1"><input type="radio" name="switch" value="1" id="switch1" checked>Yes</label>
+			</div>
+			<div class="selectgroup">
+				<label for="switch2"><input type="radio" name="switch" value="0" id="switch2">No</label>
+			</div>
 			<button type="button" class="nextlink" onclick="nextPage('teleop')">Next</button>
 			<button type="button" class="nextlink review" onclick="nextPage('review')">Review</button>
 		</div>
@@ -81,7 +105,7 @@
 		</div>
 		<div id="review" class="page">
 			<h2>Prematch</h2><button type="button" class="nextlink" onclick="nextPage('prematch')">Prematch</button>
-			<h2>Auton</h2><button type="button" class="nextlink" onclick="nextPage('auton')">Prematch</button>
+			<h2>Auton</h2><button type="button" class="nextlink" onclick="nextPage('auton')">Auton</button>
 			<h2>Teleop</h2><button type="button" class="nextlink" onclick="nextPage('teleop')">Teleop</button>
 			<h2>Postmatch</h2><button type="button" class="nextlink" onclick="nextPage('postmatch')">Postmatch</button>
 			<button type="submit">Submit</button>

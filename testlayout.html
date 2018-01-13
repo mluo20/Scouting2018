@@ -45,13 +45,22 @@
 		<div id="prematch" class="page">
 
 			<h2>Prematch</h2>
-			<div class="formgroup">
-				<label for="matchnum">Match Number:</label>
-				<input type="number" name="matchnum" id="matchnum">
-				<label for="teamnum">Team Number:</label>
-				<input type="number" name="teamnum" id="teamnum"><br>
-				<input type="radio" name="alliance" value="blue" id="blue" checked><label for="blue">Blue Alliance</label><br>
-				<input type="radio" name="alliance" value="red" id="red"><label for="red">Red Alliance</label><br>
+			<div class="group">
+				<div class="formgroup">
+					<label for="matchnum">Match Number:</label>
+					<input type="number" name="matchnum" id="matchnum">
+				</div>
+				<div class="formgroup">
+					<label for="teamnum">Team Number:</label>
+					<input type="number" name="teamnum" id="teamnum">
+				</div>
+				Alliance:
+				<div>
+					<label for="blue"><input type="radio" name="alliance" value="blue" id="blue" checked>Blue Alliance</label>
+				</div>
+				<div>
+					<label for="red"><input type="radio" name="alliance" value="red" id="red">Red Alliance</label>
+				</div>
 			</div>
 
 			<button type="button" class="nextlink" onclick="nextPage('auton')">Next</button>

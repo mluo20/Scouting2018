@@ -37,7 +37,7 @@
 
 		<h1>Scouting</h1>
 
-		<form action="" method="post" class="dirty-check">
+		<form action="" method="post" class="dirty-check" id="scoutingform">
 
 		<ul id="progressbar">
 		    <li class="active">Prematch</li>
@@ -50,13 +50,13 @@
 
 			<h2>Prematch</h2>
 			<div class="form-row row">
-				<div class="seven columns">
+				<div class="six columns">
 					<label for="matchnum">Match Number:</label>
 					<input type="number" name="matchnum" id="matchnum">
 					<label for="teamnum">Team Number:</label>
 					<input type="number" name="teamnum" id="teamnum">
 				</div>
-				<div class="three columns">
+				<div class="four columns">
 					<div class="selectgroup">
 						<strong>Alliance:</strong>
 					</div>
@@ -108,15 +108,30 @@
 					<strong>Switch?</strong>
 				</div>
 				<label for="switch1">
-					<input type="radio" name="switch" value="1" id="switch1">
+					<input type="radio" name="switch" value="1" id="switch1" onchange="toggleForm(this);">
 					<span class="label-body">Yes</span>
 				</label>
 				<label for="switch2">
-					<input type="radio" name="switch" value="0" id="switch2" checked>
+					<input type="radio" name="switch" value="0" id="switch2" onchange="toggleForm(this);" checked>
 					<span class="label-body">No</span>
 				</label>
 
 				</div>
+
+				<div class="six columns" id="correctside1">
+				<div class="selectgroup">
+				<strong>Correct side?</strong>
+				</div>
+				<label for="correctswitch1">
+					<input type="radio" name="correctswitch" value="1" id="correctswitch1">
+					<span class="label-body">Yes</span>
+				</label>
+				<label for="correctswitch2">
+					<input type="radio" name="correctswitch" value="0" id="correctswitch2" checked>
+					<span class="label-body">No</span>
+				</label>
+				</div>
+
 			</div>
 
 			<div class="row form-row">
@@ -125,10 +140,24 @@
 				<div class="selectgroup">
 					<strong>Scale?</strong>
 				</div>
-				<label for="scale1"><input type="radio" name="scale" value="1" id="scale1">
+				<label for="scale1"><input type="radio" name="scale" value="1" id="scale1" onchange="toggleForm(this);">
 					<span class="label-body">Yes</span></label>
-				<label for="scale2"><input type="radio" name="scale" value="0" id="scale2" checked>
+				<label for="scale2"><input type="radio" name="scale" value="0" id="scale2" onchange="toggleForm(this);" checked>
 					<span class="label-body">No</span></label>
+				</div>
+
+				<div class="six columns" id="correctside2">
+				<div class="selectgroup">
+				<strong>Correct side?</strong>
+				</div>
+				<label for="correctscale1">
+					<input type="radio" name="correctscale" value="1" id="correctscale1">
+					<span class="label-body">Yes</span>
+				</label>
+				<label for="correctscale2">
+					<input type="radio" name="correctscale" value="0" id="correctscale2" checked>
+					<span class="label-body">No</span>
+				</label>
 				</div>
 
 			</div>
@@ -141,10 +170,14 @@
 		<div id="teleop" class="page">
 			<h2>Teleop</h2>
 
+			<div class="row form-row">
 			<p>Add Timer</p>
+			</div>
 
-			<button type="button" class="nextlink button-primary" onclick="nextPage('postmatch')">Next</button>
-			<button type="button" class="nextlink review button-primary" onclick="nextPage('review')">Review</button>
+			<div class="row form-row">
+			<button type="button" class="nextlink button-primary u-pull-right" onclick="nextPage('postmatch')">Next</button>
+			<button type="button" class="nextlink review button-primary u-pull-right" onclick="nextPage('review')">Review</button>
+			</div>
 		</div>
 		<div id="postmatch" class="page">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin faucibus cursus purus, ut pulvinar leo vestibulum et. Phasellus convallis at leo in tristique. Etiam vel semper mauris, et tempor est. Maecenas leo lectus, varius sit amet eros quis, lacinia ultricies est. Proin consectetur et arcu vel laoreet. Etiam at laoreet neque, id facilisis nisi. Aenean in tellus sit amet tortor efficitur vestibulum a ac felis. Vivamus quis scelerisque tortor. Maecenas vehicula massa non enim consectetur sollicitudin.
 			<button type="button" class="nextlink button-primary" onclick="nextPage('review'); addReview();">Review</button>

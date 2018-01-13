@@ -4,6 +4,7 @@
 ***/
 
 function nextPage(page) {
+
 	// Declare all variables
     var i, pagecontent, nextButtons;
  
@@ -44,6 +45,25 @@ function addReview() {
     }
 }
 
+/**FORM HANDLING**/
+
+var scoutingvalues = document.forms["scoutingform"];
+
+function toggleForm(option) {
+	if (option == scoutingvalues["switch1"]) {
+		document.getElementById("correctside1").style.display = "block";
+	}
+	else if (option == scoutingvalues["switch2"]) {
+		document.getElementById("correctside1").style.display = "none";
+	}
+	else if (option == scoutingvalues["scale1"]) {
+		document.getElementById("correctside2").style.display = "block";
+	}
+	else if (option == scoutingvalues["scale2"]) {
+		document.getElementById("correctside2").style.display = "none";
+	}
+}
+
 /**ARE YOU SURE**/
 $(function() {
 
@@ -51,3 +71,5 @@ $(function() {
     $('form.dirty-check').areYouSure();
 
 });
+
+

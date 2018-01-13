@@ -52,9 +52,9 @@
 			<div class="form-row row">
 				<div class="seven columns">
 					<label for="matchnum">Match Number:</label>
-					<input type="number" name="matchnum" id="matchnum" class="u-full-width">
+					<input type="number" name="matchnum" id="matchnum">
 					<label for="teamnum">Team Number:</label>
-					<input type="number" name="teamnum" id="teamnum" class="u-full-width">
+					<input type="number" name="teamnum" id="teamnum">
 				</div>
 				<div class="three columns">
 					<div class="selectgroup">
@@ -87,54 +87,61 @@
 			<div class="row form-row">
 
 				<div class="selectgroup">
-					Cross baseline?
+					<strong>Cross baseline?</strong>
 				</div>
 				<label for="baseline1">
-					<input type="radio" name="baseline" value="1" id="baseline1" checked>
+					<input type="radio" name="baseline" value="1" id="baseline1">
 					<span class="label-body">Yes</span>
 				</label>
 				<label for="baseline2">
-					<input type="radio" name="baseline" value="0" id="baseline2">
+					<input type="radio" name="baseline" value="0" id="baseline2" checked>
 					<span class="label-body">No</span>
 				</label>
 
 			</div>
 
 			<div class="row form-row">
+
+				<div class="six columns">
+
 				<div class="selectgroup">
-					Switch?
+					<strong>Switch?</strong>
 				</div>
 				<label for="switch1">
-					<input type="radio" name="switch" value="1" id="switch1" checked>
+					<input type="radio" name="switch" value="1" id="switch1">
 					<span class="label-body">Yes</span>
 				</label>
 				<label for="switch2">
-					<input type="radio" name="switch" value="0" id="switch2">
-					<span class="label-body">Yes</span>
+					<input type="radio" name="switch" value="0" id="switch2" checked>
+					<span class="label-body">No</span>
 				</label>
+
+				</div>
 			</div>
 
 			<div class="row form-row">
 
-			<div class="selectgroup">
-				Scale?
-			</div>
-			<div class="selectgroup">
-				<label for="scale1"><input type="radio" name="scale" value="1" id="scale1" checked>Yes</label>
-			</div>
-			<div class="selectgroup">
-				<label for="scale2"><input type="radio" name="scale" value="0" id="scale2">No</label>
-			</div>
+				<div class="six columns">
+				<div class="selectgroup">
+					<strong>Scale?</strong>
+				</div>
+				<label for="scale1"><input type="radio" name="scale" value="1" id="scale1">
+					<span class="label-body">Yes</span></label>
+				<label for="scale2"><input type="radio" name="scale" value="0" id="scale2" checked>
+					<span class="label-body">No</span></label>
+				</div>
 
 			</div>
 
-			<button type="button" class="nextlink button-primary" onclick="nextPage('teleop')">Next</button>
-			<button type="button" class="nextlink review button-primary" onclick="nextPage('review')">Review</button>
+			<div class="row form-row">
+				<button type="button" class="nextlink button-primary u-pull-right" onclick="nextPage('teleop')">Next</button>
+				<button type="button" class="nextlink review button-primary u-pull-right" onclick="nextPage('review')">Review</button>
+			</div>
 		</div>
 		<div id="teleop" class="page">
 			<h2>Teleop</h2>
 
-			<p>Add Timer
+			<p>Add Timer</p>
 
 			<button type="button" class="nextlink button-primary" onclick="nextPage('postmatch')">Next</button>
 			<button type="button" class="nextlink review button-primary" onclick="nextPage('review')">Review</button>

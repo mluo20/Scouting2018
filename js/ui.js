@@ -1,3 +1,8 @@
+
+/***THIS IS FOR THE UI NEXT PAGES AND NAVIGATION
+    change to jquery later
+***/
+
 function nextPage(page) {
 	// Declare all variables
     var i, pagecontent, nextButtons;
@@ -38,3 +43,11 @@ function addReview() {
         reviewbuttons[i].style.display = "block";
     }
 }
+
+/**ARE YOU SURE**/
+$(function() {
+
+    // Enable on selected forms
+    $('form.dirty-check').areYouSure();
+
+});

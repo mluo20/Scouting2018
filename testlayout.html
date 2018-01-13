@@ -6,6 +6,10 @@
 
 	<title>Scouting UI</title>
 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/skeleton.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
@@ -33,7 +37,7 @@
 
 		<h1>Scouting</h1>
 
-		<form action="" method="post">
+		<form action="" method="post" class="dirty-check">
 
 		<ul id="progressbar">
 		    <li class="active">Prematch</li>
@@ -45,69 +49,104 @@
 		<div id="prematch" class="page">
 
 			<h2>Prematch</h2>
-			<div class="group">
-				<div class="formgroup">
+			<div class="form-row row">
+				<div class="seven columns">
 					<label for="matchnum">Match Number:</label>
-					<input type="number" name="matchnum" id="matchnum">
-				</div>
-				<div class="formgroup">
+					<input type="number" name="matchnum" id="matchnum" class="u-full-width">
 					<label for="teamnum">Team Number:</label>
-					<input type="number" name="teamnum" id="teamnum">
+					<input type="number" name="teamnum" id="teamnum" class="u-full-width">
 				</div>
-
-				<div class="selectgroup">
-					Alliance:
-				</div>
-				<div class="selectgroup">
-					<label for="blue"><input type="radio" name="alliance" value="blue" id="blue" checked>Blue Alliance</label>
-				</div>
-				<div class="selectgroup">
-					<label for="red"><input type="radio" name="alliance" value="red" id="red">Red Alliance</label>
+				<div class="three columns">
+					<div class="selectgroup">
+						<strong>Alliance:</strong>
+					</div>
+					<label for="blue">
+						<input type="radio" name="alliance" value="blue" id="blue" checked>
+						<span class="label-body">Blue Alliance</span>
+					</label>
+					<label for="red">
+						<input type="radio" name="alliance" value="red" id="red">
+						<span class="label-body">Red Alliance</span>
+					</label>
 				</div>
 			</div>
 
-			<button type="button" class="nextlink" onclick="nextPage('auton')">Next</button>
-			<button type="button" class="nextlink review" onclick="nextPage('review')">Review</button>
+			<div class="form-row row">
+
+				<button type="button" class="nextlink button-primary u-pull-right" onclick="nextPage('auton')">Next</button>
+				<button type="button" class="nextlink review button-primary u-pull-right" onclick="nextPage('review')">Review</button>
+
+			</div>
 
 		</div>
 
 		<div id="auton" class="page">
+
 			<h2>Autonomous</h2>
 
-			<div class="selectgroup">
-				Cross baseline?
-			</div>
-			<div class="selectgroup">
-				<label for="baseline1"><input type="radio" name="baseline" value="1" id="baseline1" checked>Yes</label>
-			</div>
-			<div class="selectgroup">
-				<label for="baseline2"><input type="radio" name="baseline" value="0" id="baseline2">No</label>
+			<div class="row form-row">
+
+				<div class="selectgroup">
+					Cross baseline?
+				</div>
+				<label for="baseline1">
+					<input type="radio" name="baseline" value="1" id="baseline1" checked>
+					<span class="label-body">Yes</span>
+				</label>
+				<label for="baseline2">
+					<input type="radio" name="baseline" value="0" id="baseline2">
+					<span class="label-body">No</span>
+				</label>
+
 			</div>
 
+			<div class="row form-row">
+				<div class="selectgroup">
+					Switch?
+				</div>
+				<label for="switch1">
+					<input type="radio" name="switch" value="1" id="switch1" checked>
+					<span class="label-body">Yes</span>
+				</label>
+				<label for="switch2">
+					<input type="radio" name="switch" value="0" id="switch2">
+					<span class="label-body">Yes</span>
+				</label>
+			</div>
+
+			<div class="row form-row">
+
 			<div class="selectgroup">
-				Switch?
+				Scale?
 			</div>
 			<div class="selectgroup">
-				<label for="switch1"><input type="radio" name="switch" value="1" id="switch1" checked>Yes</label>
+				<label for="scale1"><input type="radio" name="scale" value="1" id="scale1" checked>Yes</label>
 			</div>
 			<div class="selectgroup">
-				<label for="switch2"><input type="radio" name="switch" value="0" id="switch2">No</label>
+				<label for="scale2"><input type="radio" name="scale" value="0" id="scale2">No</label>
 			</div>
-			<button type="button" class="nextlink" onclick="nextPage('teleop')">Next</button>
-			<button type="button" class="nextlink review" onclick="nextPage('review')">Review</button>
+
+			</div>
+
+			<button type="button" class="nextlink button-primary" onclick="nextPage('teleop')">Next</button>
+			<button type="button" class="nextlink review button-primary" onclick="nextPage('review')">Review</button>
 		</div>
-		<div id="teleop" class="page">Maecenas consequat, mauris at ultrices ornare, urna quam blandit mi, at pretium nisi augue in tellus. Vivamus est neque, fringilla vel massa non, vestibulum vulputate mauris. Curabitur vel augue a diam euismod mollis. Duis non malesuada purus, in molestie tortor. Nam commodo malesuada pretium. Sed rhoncus lacus in augue vulputate consectetur. Cras neque massa, bibendum nec risus vitae, tincidunt rutrum ante. Vestibulum eleifend, dolor non venenatis scelerisque, diam elit vestibulum leo, vel maximus sem ipsum sed metus. Proin ut elit sem. Fusce et accumsan tellus, eget tincidunt sapien. Mauris sodales dui ut est interdum, sed tempus ipsum mollis. Fusce in maximus odio.
-			<button type="button" class="nextlink" onclick="nextPage('postmatch')">Next</button>
-			<button type="button" class="nextlink review" onclick="nextPage('review')">Review</button>
+		<div id="teleop" class="page">
+			<h2>Teleop</h2>
+
+			<p>Add Timer
+
+			<button type="button" class="nextlink button-primary" onclick="nextPage('postmatch')">Next</button>
+			<button type="button" class="nextlink review button-primary" onclick="nextPage('review')">Review</button>
 		</div>
 		<div id="postmatch" class="page">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin faucibus cursus purus, ut pulvinar leo vestibulum et. Phasellus convallis at leo in tristique. Etiam vel semper mauris, et tempor est. Maecenas leo lectus, varius sit amet eros quis, lacinia ultricies est. Proin consectetur et arcu vel laoreet. Etiam at laoreet neque, id facilisis nisi. Aenean in tellus sit amet tortor efficitur vestibulum a ac felis. Vivamus quis scelerisque tortor. Maecenas vehicula massa non enim consectetur sollicitudin.
-			<button type="button" class="nextlink" onclick="nextPage('review'); addReview();">Review</button>
+			<button type="button" class="nextlink button-primary" onclick="nextPage('review'); addReview();">Review</button>
 		</div>
 		<div id="review" class="page">
-			<h2>Prematch</h2><button type="button" class="nextlink" onclick="nextPage('prematch')">Prematch</button>
-			<h2>Auton</h2><button type="button" class="nextlink" onclick="nextPage('auton')">Auton</button>
-			<h2>Teleop</h2><button type="button" class="nextlink" onclick="nextPage('teleop')">Teleop</button>
-			<h2>Postmatch</h2><button type="button" class="nextlink" onclick="nextPage('postmatch')">Postmatch</button>
+			<h2>Prematch</h2><button type="button" class="nextlink button-primary" onclick="nextPage('prematch')">Prematch</button>
+			<h2>Auton</h2><button type="button" class="nextlink button-primary" onclick="nextPage('auton')">Auton</button>
+			<h2>Teleop</h2><button type="button" class="nextlink button-primary" onclick="nextPage('teleop')">Teleop</button>
+			<h2>Postmatch</h2><button type="button" class="nextlink button-primary" onclick="nextPage('postmatch')">Postmatch</button>
 			<button type="submit">Submit</button>
 		</div>
 
@@ -122,6 +161,9 @@
 	</div>
 	</footer>
 
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/jquery.are-you-sure.js"></script>
+	<script src="js/jquery.timer.js"></script>
 	<script src="js/ui.js"></script>
 
 </body>

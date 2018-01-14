@@ -1,6 +1,6 @@
 
 /***THIS IS FOR THE UI NEXT PAGES AND NAVIGATION
-    change to jquery later
+    change to jquery later possibly?
 ***/
 
 function nextPage(page) {
@@ -47,7 +47,43 @@ function addReview() {
 
 /**STOPWATCH**/
 
+var claimedtimes = [];
 
+$(function() {
+
+    $('#stopwatch').runner("init").on('runnerStart', function(eventObject, info) {
+        $("#startbutton").text("Stop");
+    }).on('runnerStop', function(eventObject, info) {
+        $("#startbutton").text("Start")
+    });
+
+    $('#startbutton').click(function() {
+
+        $('#stopwatch').runner('toggle');
+
+        // if ($(this).text() == "Start") {
+        //     $('#stopwatch').runner('start');
+        //     $(this).text("Stop");
+        // }
+        // else {
+        //     alert("Current lap time: " + $('#runner').runner('lap'));
+            // $("#runner").runner("reset", true);
+            // $('#stopwatch').runner('stop');
+        //     $(this).text("Start");
+        // }
+    });
+
+    $('#lap').click(function() {
+        console.log($('#runner').runner('lap'));
+    });
+
+    $('#resetbutton').click(function() {
+        $('#stopwatch').runner('reset', true);
+    });
+
+    $('#claimedtimes').text(claimedtimes);
+
+});
 
 /**FORM HANDLING**/
 
@@ -68,12 +104,45 @@ function toggleForm(option) {
 	}
 }
 
-/**ARE YOU SURE**/
+function decrement(element) {
+    var currentVal = parseInt(document.getElementById(element).value);
+    if (!isNaN(currentVal) && currentVal > 0) {
+        document.getElementById(element).value = currentVal - 1;
+    }
+    else {
+        document.getElementById(element).value = 0;
+    }
+}
+
+function increment(element) {
+    var currentVal = parseInt(document.getElementById(element).value);
+    if (!isNaN(currentVal)) {
+        document.getElementById(element).value = currentVal + 1;
+    }
+    else {
+        document.getElementById(element).value = 0;
+    }
+}
+
 $(function() {
 
-    // Enable on selected forms
-    $('form.dirty-check').areYouSure();
+    $('#scoutingform').on('keyup keypress', function(e) {
+
+        var keyCode = e.keyCode || e.which;
+        if (keyCode === 13) { 
+            e.preventDefault();
+            return false;
+        }
+
+        $("#prematchvals").find("span:first-child").text(scoutingvalues["matchnum"].value);
+        // $("#prematchvals").find("li")[1].append(scoutingvalues['teamnum'].value);
+        // $("#prematchvals").find("li")[2].append(scoutingvalues['alliance'].value);
+
+    });
 
 });
 
-
+/**ARE YOU SURE**/
+$(function() {
+    $('form.dirty-check').areYouSure();
+});

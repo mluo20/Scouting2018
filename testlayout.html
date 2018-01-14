@@ -171,9 +171,39 @@
 			<h2>Teleop</h2>
 
 			<div class="row form-row">
-			 
-			<br/>
-
+				<div class="seven columns">
+					<h3>Claiming</h3>
+					<div>
+					<span id="stopwatch"></span>
+					</div>
+					<button type="button" id="startbutton">Start</button>
+					<button type="button" id="resetbutton">Abort</button>
+					<button type="button" id="lap">lap</button>
+					<div id="claimedtimes">
+						
+					</div>
+				</div>
+				<div class="five columns">
+					<h3>Cubes obtained</h3>
+					<label for="portalcubes">From Portal:</label>
+					<div class="numbergroup">
+						<button type="button" class="decrement" onclick="decrement('portalcubes')">-</button>
+						<input type="number" name="portalcubes" id="portalcubes" value="0">
+						<button type="button" class="increment" onclick="increment('portalcubes')">+</button>
+					</div>
+					<label for="exchangecubes">From Exchange:</label>
+					<div class="numbergroup">
+						<button type="button" class="decrement" onclick="decrement('exchangecubes')">-</button>
+						<input type="number" name="exchangecubes" id="exchangecubes" value="0">
+						<button type="button" class="increment" onclick="increment('exchangecubes')">+</button>
+					</div>
+					<label for="groundcubes">From ground:</label>
+					<div class="numbergroup">
+						<button type="button" class="decrement" onclick="decrement('groundcubes')">-</button>
+						<input type="number" name="groundcubes" id="groundcubes" value="0">
+						<button type="button" class="increment" onclick="increment('groundcubes')">+</button>
+					</div>
+				</div>
 			</div>
 
 			<div class="row form-row">
@@ -181,15 +211,40 @@
 			<button type="button" class="nextlink review button-primary u-pull-right" onclick="nextPage('review')">Review</button>
 			</div>
 		</div>
-		<div id="postmatch" class="page">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin faucibus cursus purus, ut pulvinar leo vestibulum et. Phasellus convallis at leo in tristique. Etiam vel semper mauris, et tempor est. Maecenas leo lectus, varius sit amet eros quis, lacinia ultricies est. Proin consectetur et arcu vel laoreet. Etiam at laoreet neque, id facilisis nisi. Aenean in tellus sit amet tortor efficitur vestibulum a ac felis. Vivamus quis scelerisque tortor. Maecenas vehicula massa non enim consectetur sollicitudin.
-			<button type="button" class="nextlink button-primary" onclick="nextPage('review'); addReview();">Review</button>
+		<div id="postmatch" class="page">
+			<h3>Postmatch</h3>
+			<div class="form-row row">
+				<div class="six columns">
+					<label for="bluescore">Blue Score:</label><input type="number" name="bluescore" id="bluescore">
+				</div>
+				<div class="six columns">
+					<label for="redscore">Red Score:</label><input type="number" name="redscore" id="redscore">
+				</div>
+			</div>
+			<div class="form-row row">
+				<button type="button" class="nextlink button-primary u-pull-right" onclick="nextPage('review'); addReview();">Review</button>
+			</div>
 		</div>
 		<div id="review" class="page">
-			<h2>Prematch</h2><button type="button" class="nextlink button-primary" onclick="nextPage('prematch')">Prematch</button>
-			<h2>Auton</h2><button type="button" class="nextlink button-primary" onclick="nextPage('auton')">Auton</button>
-			<h2>Teleop</h2><button type="button" class="nextlink button-primary" onclick="nextPage('teleop')">Teleop</button>
-			<h2>Postmatch</h2><button type="button" class="nextlink button-primary" onclick="nextPage('postmatch')">Postmatch</button>
-			<button type="submit">Submit</button>
+			<h2>Prematch</h2>
+			<div id="prematchvals">
+				<ol>
+					<li>Match Number: <span></span></li>
+					<li>Team Number: <span></span></li>
+					<li>Alliance: <span></span></li>
+				</ol>
+			</div>
+			<button type="button" class="nextlink button-primary" onclick="nextPage('prematch')">Prematch</button>
+			<h2>Auton</h2>
+			<div id="autonvals"></div>
+			<button type="button" class="nextlink button-primary" onclick="nextPage('auton')">Auton</button>
+			<h2>Teleop</h2>
+			<div id="teleopvals"></div>
+			<button type="button" class="nextlink button-primary" onclick="nextPage('teleop')">Teleop</button>
+			<h2>Postmatch</h2>
+			<div id="postmatchvals"></div>
+			<button type="button" class="nextlink button-primary" onclick="nextPage('postmatch')">Postmatch</button>
+			<button type="submit" class="u-pull-right">Submit</button>
 		</div>
 
 		</form>

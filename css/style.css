@@ -2,7 +2,6 @@
 
 * {
 	box-sizing: border-box;
-	font-family: 'Muli', sans-serif;
 }
 
 *:focus {
@@ -13,6 +12,7 @@ body {
 	padding: 0;
 	margin: 0;
 	font-family: 'Muli', sans-serif;
+	overflow-wrap: break-word;
 }
 
 /**FORM STYLING**/
@@ -25,7 +25,7 @@ input {
 }
 
 input[type='text'], input[type='number'] {
-	display: block;
+	/*display: block;*/
 }
 
 input[type='radio'], input[type='checkbox'] {
@@ -44,6 +44,42 @@ input[type='text']:focus, input[type='number']:focus {
 
 #correctside1, #correctside2 {
 	display: none;
+}
+
+.numbergroup {
+	display: flex;
+}
+
+.numbergroup input {
+	border-radius: 0px;
+	width: 20px;
+	flex: 2 1 auto;
+}
+
+.decrement {
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	padding: 0px 2px;
+	margin: 0px;
+	z-index: 2;
+	width: 10px;
+	flex: 1 1 auto;
+	border-right: 0;
+	font-size: 15pt;
+	line-height: 0;
+}
+
+.increment {
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-left: 0;
+	padding: 0px 2px;
+	margin: 0px;
+	z-index: 2;
+	width: 10px;
+	flex: 1 1 auto;
+	font-size: 15pt;
+	line-height: 0;
 }
 
 /*button {

@@ -22,10 +22,14 @@
 
 		<div id="heading">
 			<h1>Pascack Pioneers</h1>
-		<nav id="menu">
+		<nav id="menu"> <!--as seen from a full permissions user, will definitely change this later-->
 			<ul>
-				<li><a href="#">login</a></li>
-				<li><a href="#">hi</a></li>
+				<li><a href="#">scout</a></li>
+				<li><a href="#">superscout</a></li>
+				<li><a href="#">rawdata</a></li>
+				<li><a href="#">teams</a></li>
+				<li><a href="#">user</a></li>
+				<li><a href="#">logout</a></li>
 			</ul>
 		</nav>
 		</div>
@@ -48,8 +52,9 @@
 		    <li id="review">Review</li>
 		</ul>
 		<div id="prematch" class="page">
-
-			<h2>Prematch</h2>
+			<div class="form-row row">
+				<h2>Prematch</h2>
+			</div>
 			<div class="form-row row">
 				<div class="six columns">
 					<label for="matchnum">Match Number:</label>
@@ -83,82 +88,94 @@
 
 		<div id="auton" class="page">
 
-			<h2>Autonomous</h2>
-
+			<div class=" row form-row">
+				<h2>Autonomous</h2>
+			</div>
 			<div class="row form-row">
 
-				<div class="selectgroup">
-					<strong>Cross baseline?</strong>
+				<div class="four columns">
+
+					<div class="selectgroup">
+						<strong>Cross baseline?</strong>
+					</div>
+					<label for="baseline1">
+						<input type="radio" name="baseline" value="1" id="baseline1">
+						<span class="label-body">Yes</span>
+					</label>
+					<label for="baseline2">
+						<input type="radio" name="baseline" value="0" id="baseline2" checked>
+						<span class="label-body">No</span>
+					</label>
+
 				</div>
-				<label for="baseline1">
-					<input type="radio" name="baseline" value="1" id="baseline1">
-					<span class="label-body">Yes</span>
-				</label>
-				<label for="baseline2">
-					<input type="radio" name="baseline" value="0" id="baseline2" checked>
-					<span class="label-body">No</span>
-				</label>
+
+				<div class="four columns">
+					<div class="selectgroup">
+						<strong>Switch?</strong>
+					</div>
+					<label for="switch1">
+						<input type="radio" name="switch" value="1" id="switch1" onchange="toggleForm(this);">
+						<span class="label-body">Yes</span>
+					</label>
+					<label for="switch2">
+						<input type="radio" name="switch" value="0" id="switch2" onchange="toggleForm(this);" checked>
+						<span class="label-body">No</span>
+					</label>
+				</div>
+
+				<div class="four columns">
+					<div class="six columns">
+					<div class="selectgroup">
+						<strong>Scale?</strong>
+					</div>
+					<label for="scale1">
+						<input type="radio" name="scale" value="1" id="scale1" onchange="toggleForm(this);">
+						<span class="label-body">Yes</span></label>
+					<label for="scale2">
+						<input type="radio" name="scale" value="0" id="scale2" onchange="toggleForm(this);" checked>
+						<span class="label-body">No</span></label>
+					</div>
+				</div>
 
 			</div>
 
 			<div class="row form-row">
 
-				<div class="six columns">
-
-				<div class="selectgroup">
-					<strong>Switch?</strong>
-				</div>
-				<label for="switch1">
-					<input type="radio" name="switch" value="1" id="switch1" onchange="toggleForm(this);">
-					<span class="label-body">Yes</span>
-				</label>
-				<label for="switch2">
-					<input type="radio" name="switch" value="0" id="switch2" onchange="toggleForm(this);" checked>
-					<span class="label-body">No</span>
-				</label>
-
+				<div class="four columns noselect">
+					<!--empty--> 
+					&nbsp;
 				</div>
 
-				<div class="six columns" id="correctside1">
-				<div class="selectgroup">
-				<strong>Correct side?</strong>
+				<div class="four columns">
+				<div id="correctside1">
+					<div class="selectgroup">
+					<strong>Correct side?</strong>
+					</div>
+					<label for="correctswitch1">
+						<input type="radio" name="correctswitch" value="1" id="correctswitch1" class="ays-ignore">
+						<span class="label-body">Yes</span>
+					</label>
+					<label for="correctswitch2">
+						<input type="radio" name="correctswitch" value="0" id="correctswitch2" class="ays-ignore" checked>
+						<span class="label-body">No</span>
+					</label>
 				</div>
-				<label for="correctswitch1">
-					<input type="radio" name="correctswitch" value="1" id="correctswitch1" class="ays-ignore">
-					<span class="label-body">Yes</span>
-				</label>
-				<label for="correctswitch2">
-					<input type="radio" name="correctswitch" value="0" id="correctswitch2" class="ays-ignore" checked>
-					<span class="label-body">No</span>
-				</label>
-				</div>
-
-			</div>
-
-			<div class="row form-row">
-
-				<div class="six columns">
-				<div class="selectgroup">
-					<strong>Scale?</strong>
-				</div>
-				<label for="scale1"><input type="radio" name="scale" value="1" id="scale1" onchange="toggleForm(this);">
-					<span class="label-body">Yes</span></label>
-				<label for="scale2"><input type="radio" name="scale" value="0" id="scale2" onchange="toggleForm(this);" checked>
-					<span class="label-body">No</span></label>
 				</div>
 
-				<div class="six columns" id="correctside2">
-				<div class="selectgroup">
-				<strong>Correct side?</strong>
+				<div class="four columns">
+				<div id="correctside2">
+					<div class="selectgroup">
+					<strong>Correct side?</strong>
+					</div>
+					<label for="correctscale1">
+						<input type="radio" name="correctscale" value="1" id="correctscale1" class="ays-ignore">
+						<span class="label-body">Yes</span>
+					</label>
+					<label for="correctscale2">
+						<input type="radio" name="correctscale" value="0" id="correctscale2" class="ays-ignore" checked>
+						<span class="label-body">No</span>
+					</label>
 				</div>
-				<label for="correctscale1">
-					<input type="radio" name="correctscale" value="1" id="correctscale1" class="ays-ignore">
-					<span class="label-body">Yes</span>
-				</label>
-				<label for="correctscale2">
-					<input type="radio" name="correctscale" value="0" id="correctscale2" class="ays-ignore" checked>
-					<span class="label-body">No</span>
-				</label>
 				</div>
 
 			</div>
@@ -169,7 +186,10 @@
 			</div>
 		</div>
 		<div id="teleop" class="page">
-			<h2>Teleop</h2>
+			
+			<div class="row form-row">
+				<h2>Teleop</h2>
+			</div>
 
 			<div class="row form-row">
 				<div class="seven columns">
@@ -213,7 +233,9 @@
 			</div>
 		</div>
 		<div id="postmatch" class="page">
-			<h3>Postmatch</h3>
+			<div class="row form-row">
+				<h3>Postmatch</h3>
+			</div>
 			<div class="form-row row">
 				<div class="six columns">
 					<div class="selectgroup"><strong>Climbing:</strong></div>
@@ -300,7 +322,7 @@
 
 	<footer id="footer">
 	<div class="container">
-		Hello
+		<a href="#">Contact</a>
 	</div>
 	</footer>
 

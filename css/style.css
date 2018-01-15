@@ -17,12 +17,12 @@ body {
 
 /**FORM STYLING**/
 
-input {
-	/*font-size: 16pt;
+/*input {
+	font-size: 16pt;
 	padding: 5px;
 	border-radius: 2px;
-	border: 1px solid #ced4da;*/
-}
+	border: 1px solid #ced4da;
+}*/
 
 input[type='text'], input[type='number'] {
 	/*display: block;*/
@@ -109,23 +109,34 @@ button:hover {
 	margin-bottom: 10px;
 }*/
 
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
 #header {
 	background-color: #49d4ff;
-	height: 120px;
+	height: 100px;
 }
 
 #heading h1 {
 	margin: 0;
 	float: left;
 	margin-top: 30px;
+	font-size: 3.5rem;
 }
 
 #menu {
 	text-transform: uppercase;
-	letter-spacing: 2px;
+	letter-spacing: 1.5px;
 	float: right;
-	margin-top: 42px;
-	font-size: 14pt;
+	margin-top: 40px;
+	font-size: 11pt;
 }
 
 #menu ul {
@@ -145,12 +156,29 @@ button:hover {
 	text-decoration: none;
 }
 
+#menu .active {
+	text-decoration: underline;
+}
+
 #main {
-	margin-top: 50px;
+	padding-top: 30px;
 }
 
 #main h1 {
 	text-align: center;
+	font-size: 3rem;
+	margin-bottom: 12px;
+}
+
+#main h2 {
+	font-size: 2.8rem;
+	border-bottom: 1px solid black;
+	padding-bottom: 10px;
+	margin-bottom: 25px;
+}
+
+#main h3 {
+	font-size: 2.5rem;
 }
 
 #main .page {
@@ -159,7 +187,7 @@ button:hover {
 
 /*progressbar*/
 #progressbar {
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 	overflow: hidden;
 	/*CSS counters to number the steps*/
 	counter-reset: step;
@@ -222,7 +250,9 @@ button:hover {
 	display: none;
 }
 
-#footer {
-	margin-top: 50px;
+#footer .container {
+	border-top: 1px solid black;
+	margin-top: 20px;
+	padding-top: 20px;
 	margin-bottom: 50px
 }

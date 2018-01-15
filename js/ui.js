@@ -1,5 +1,5 @@
 
-/***THIS IS FOR THE UI NEXT PAGES AND NAVIGATION
+/***THIS IS FOR THE UI NEXT PAGES AND NAVIGATION AND THE STOPWATCH
     change to jquery later possibly?
 ***/
 

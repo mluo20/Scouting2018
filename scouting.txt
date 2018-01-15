@@ -1,2 +1,10 @@
-Plans:
+Plans
+-----------
 
+What the ScoutingManager needs to have:
+	- config to connect to database, which can create tables and stuff
+	- login/logout
+	- storing and retrieving data
+	- displaying the actual website
+
+The kinks of this will by fully worked out by the end of this week

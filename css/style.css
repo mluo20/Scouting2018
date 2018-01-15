@@ -13,6 +13,15 @@ body {
 	margin: 0;
 	font-family: 'Muli', sans-serif;
 	overflow-wrap: break-word;
+	color: #080808;
+}
+
+a {
+	color: #9d9d9d;
+}
+
+a:hover {
+	color: #D1D1D1;
 }
 
 /**FORM STYLING**/
@@ -39,7 +48,19 @@ input[type='text']:focus, input[type='number']:focus {
 
 .form-row {
 	margin: 0 auto;
-	max-width: 550px;
+	max-width: 580px;
+}
+
+#robotstatus {
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#robotstatus label {
+	display: inline-block;
+	margin-left: 5px;
+	margin-right: 5px
 }
 
 #correctside1, #correctside2, #c1, #c2 {
@@ -52,49 +73,67 @@ input[type='text']:focus, input[type='number']:focus {
 
 .numbergroup input {
 	border-radius: 0px;
-	width: 20px;
-	flex: 2 1 auto;
+	width: 30px;
+	flex: 2 2 auto;
 }
 
 .decrement {
 	border-top-right-radius: 0px;
 	border-bottom-right-radius: 0px;
-	padding: 0px 2px;
+	border-right: 0;
 	margin: 0px;
 	z-index: 2;
-	width: 10px;
+	width: 5px;
 	flex: 1 1 auto;
-	border-right: 0;
-	font-size: 15pt;
-	line-height: 0;
+	font-size: 16pt;
+	height: 38px;
+	padding: 0;
 }
 
 .increment {
 	border-top-left-radius: 0px;
 	border-bottom-left-radius: 0px;
 	border-left: 0;
-	padding: 0px 2px;
 	margin: 0px;
 	z-index: 2;
-	width: 10px;
+	width: 5px;
 	flex: 1 1 auto;
-	font-size: 15pt;
-	line-height: 0;
+	font-size: 16pt;
+	height: 38px;
+	padding: 0;
 }
 
-/*button {
-	border: none;
-	padding: 8px 13px;
-	border-radius: 2px;
-	background-color: #49d4ff;
-	font-size: 12pt;
-	float: right;
-	margin: 10px;
+.button-primary {
+	/*padding: 12px 20px;*/
+	background-color: #ffcc00 !important;
+	border: 0;
+	height: auto;
+	line-height: initial;
+	font-size: 10pt;
+	margin-top: 10px;
+	margin-left: 10px;
+	color: white;
+}
+
+.button-primary:hover {
+	background-color: #3b3b3b !important;
+}
+
+button {
+	padding: 12px 20px;
+	background-color: #9d9d9d !important;
+	height: auto;
+	line-height: initial;
+	font-size: 10pt;
+	color: white;
+	border: 0;
+/*	margin-top: 10px;
+	margin-left: 10px;*/
 }
 
 button:hover {
 	cursor: pointer;
-}*/
+}
 
 /*.formgroup {
 	margin-bottom: 20px;
@@ -120,8 +159,9 @@ button:hover {
 }
 
 #header {
-	background-color: #49d4ff;
+	background-color: #3b3b3b;
 	height: 100px;
+	color: white;
 }
 
 #heading h1 {
@@ -132,11 +172,12 @@ button:hover {
 }
 
 #menu {
-	text-transform: uppercase;
+	text-transform: lowercase;
 	letter-spacing: 1.5px;
 	float: right;
 	margin-top: 40px;
-	font-size: 11pt;
+	font-size: 12pt;
+	overflow: hidden;
 }
 
 #menu ul {
@@ -150,14 +191,25 @@ button:hover {
 }
 
 #menu a {
-	display: inline-block;
+	display: block;
 	margin-left: 10px;
 	margin-right: 10px;
 	text-decoration: none;
+	color: white;
 }
 
-#menu .active {
+#menu .active, #menu a:hover {
+	color: #ffcc00;
 	text-decoration: underline;
+}
+
+#menu .icon {
+    display: none;
+    text-decoration: none;
+}
+
+#menu .icon:hover {
+	text-decoration: none;
 }
 
 #main {
@@ -170,11 +222,16 @@ button:hover {
 	margin-bottom: 12px;
 }
 
-#main h2 {
-	font-size: 2.8rem;
-	border-bottom: 1px solid black;
+#main .h2 {
+	border-bottom: 1px solid #9d9d9d;
 	padding-bottom: 10px;
 	margin-bottom: 25px;
+}
+
+.h2 h2 {
+	font-size: 2.8rem;
+	margin: 0;
+	display: inline;
 }
 
 #main h3 {
@@ -212,9 +269,9 @@ button:hover {
 	line-height: 20px;
 	display: block;
 	font-size: 10px;
-	color: #333;
-	background: #eee;
-	border-radius: 3px;
+	color: white;
+	background: #9d9d9d;
+	border-radius: 50%;
 	margin: 0 auto 5px auto;
 	text-align: center;
 }
@@ -224,7 +281,7 @@ button:hover {
 	content: '';
 	width: 100%;
 	height: 2px;
-	background: #eee;
+	background: #9d9d9d;
 	position: absolute;
 	left: -50%;
 	top: 9px;
@@ -238,8 +295,7 @@ button:hover {
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
 #progressbar li.active:before,  #progressbar li.active:after{
-	background: #27AE60;
-	color: white;
+	background: #ffcc00;
 }
 
 #main #prematch {
@@ -251,8 +307,87 @@ button:hover {
 }
 
 #footer .container {
-	border-top: 1px solid black;
-	margin-top: 20px;
+	border-top: 1px solid #9d9d9d;
+	/*margin-top: 10px;*/
 	padding-top: 20px;
 	margin-bottom: 50px
+}
+
+@media screen and (max-width: 800px) {
+
+	#header {
+		height: 80px;
+	}
+
+	#heading h1 {
+		font-size: 2.2rem;
+	}
+
+	#menu {
+		margin-top: 32px;
+		font-size: 9.5pt;
+	}
+
+	#menu a {
+		margin-left: 2px;
+	}
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 700px) {
+
+	#header {
+		height: 60px;
+	}
+
+	#heading h1 {
+		font-size: 1.8rem;
+		margin-top: 20px;
+	}
+
+	#menu ul {display: none;}
+
+	#menu a.icon {
+		float: right;
+		display: block;
+	}
+
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 750px) {
+
+	#menu .responsive {
+		margin: 0;
+		display: block; 
+		position: absolute;
+		left: 0;
+		top: 0px;
+		z-index: 2;
+		width: 100%;
+	}
+	#menu a.icon {
+		position: absolute;
+		right: 0px;
+		top: 5px;
+		z-index: 3;
+		padding: 15px;
+	}
+	#menu .responsive {
+		float: none;
+		text-align: left;
+	}
+	#menu .responsive li {
+		display: block;
+		margin: 0;
+	}
+	#menu .responsive a {
+		margin: 0;
+		padding: 20px 15px;
+		background-color: black;
+		color: white;
+		overflow: hidden;
+		/*width: 100%;*/
+	}
+
 }

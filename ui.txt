@@ -15,5 +15,7 @@ progress bar at the top
 timer: make it as obvious as possible, have a bar at the top with the timer
 start stop
 
+-----TIMER DOES NOT WORK-----
+
 
 possibly switch to bootstrap?

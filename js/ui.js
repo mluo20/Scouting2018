@@ -45,6 +45,15 @@ function addReview() {
     }
 }
 
+function menu() {
+    var x = document.getElementById("mainmenu");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+
 /**STOPWATCH**/
 
 var claimedtimes = [];

@@ -63,16 +63,19 @@ $(function() {
     $('#stopwatch').runner("init").on('runnerStart', function(eventObject, info) {
         $("#startbutton").text("Stop");
     }).on('runnerStop', function(eventObject, info) {
-        $("#startbutton").text("Start")
+        claimedtimes.push($("#stopwatch").text());
+        $('#claimedtimes').text(claimedtimes);
+        $("#stopwatch").runner("reset");
+        $("#startbutton").text("Start");
     });
 
     $('#startbutton').click(function() {
 
         $('#stopwatch').runner('toggle');
 
-        // if ($(this).text() == "Start") {
-        //     $('#stopwatch').runner('start');
-        //     $(this).text("Stop");
+        // if ($(this).text() == "Stop") {
+
+
         // }
         // else {
         //     alert("Current lap time: " + $('#runner').runner('lap'));
@@ -90,7 +93,6 @@ $(function() {
         $('#stopwatch').runner('reset', true);
     });
 
-    $('#claimedtimes').text(claimedtimes);
 
 });
 
@@ -174,6 +176,7 @@ $(function() {
         teleopspans.eq(0).text(scoutingvalues["portalcubes"].value);
         teleopspans.eq(1).text(scoutingvalues["exchangecubes"].value);
         teleopspans.eq(2).text(scoutingvalues["groundcubes"].value);
+        teleopspans.eq(3).text(claimedtimes);
 
         var postmatchspans = $("#postmatchvals").find("span");
         var climbvalues = "";

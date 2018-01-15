@@ -135,6 +135,14 @@ button:hover {
 	cursor: pointer;
 }
 
+#stopwatchcontainer {
+	text-align: center;
+}
+
+.centercontent {
+	text-align: center;
+}
+
 /*.formgroup {
 	margin-bottom: 20px;
 }

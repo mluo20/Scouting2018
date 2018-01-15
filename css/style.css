@@ -42,7 +42,7 @@ input[type='text']:focus, input[type='number']:focus {
 	max-width: 550px;
 }
 
-#correctside1, #correctside2 {
+#correctside1, #correctside2, #c1, #c2 {
 	display: none;
 }
 

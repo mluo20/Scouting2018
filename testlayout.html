@@ -1,11 +1,12 @@
 <!--PASCACK PIONEERS TEAM 1676-->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
 	<title>Scouting UI</title>
 
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
@@ -215,9 +216,26 @@
 			<h3>Postmatch</h3>
 			<div class="form-row row">
 				<div class="six columns">
-					<label for="bluescore">Blue Score:</label><input type="number" name="bluescore" id="bluescore">
+					<div class="selectgroup"><strong>Climbing:</strong></div>
+					<label for="climb1">
+						<input type="checkbox" name="climbing[]" value="climbed" id="climb1">
+						<span class="label-body">Climbed</span>
+					</label>
+					<label for="climb2">
+						<input type="checkbox" name="climbing[]" value="withbuddy" id="climb2">
+						<span class="label-body">Climbed with buddy</span>
+					</label>
+					<label for="climb3">
+						<input type="checkbox" name="climbing[]" value="lifted" id="climb3">
+						<span class="label-body">Lifted others</span>
+					</label>
+					<label for="climb4">
+						<input type="checkbox" name="climbing[]" value="bebuddy" id="climb4">
+						<span class="label-body">Was the buddy</span>
+					</label>
 				</div>
 				<div class="six columns">
+					<label for="bluescore">Blue Score:</label><input type="number" name="bluescore" id="bluescore">
 					<label for="redscore">Red Score:</label><input type="number" name="redscore" id="redscore">
 				</div>
 			</div>
@@ -226,24 +244,52 @@
 			</div>
 		</div>
 		<div id="review" class="page">
-			<h2>Prematch</h2>
-			<div id="prematchvals">
-				<ol>
-					<li>Match Number: <span></span></li>
-					<li>Team Number: <span></span></li>
-					<li>Alliance: <span></span></li>
-				</ol>
+			<div class="row">
+				<div id="prematchvals" class="six columns">
+					<h2>Prematch</h2>
+					<ol>
+						<li>Match Number: </li>
+						<li>Team Number: </li>
+						<li>Alliance: </li>
+					</ol>
+					<button type="button" class="nextlink button-primary" onclick="nextPage('prematch')">Prematch</button>
+				</div>
+				<div id="autonvals" class="six columns">
+					<h2>Auton</h2>
+					<ol>
+						<li>Cross Baseline? </li>
+						<li>Switch? </li>
+							<ul id="c1">
+								<li>Correct side? </li>
+							</ul>
+						<li>Scale? </li>
+							<ul id="c2">
+								<li>Correct side? </li>
+							</ul>
+					</ol>
+					<button type="button" class="nextlink button-primary" onclick="nextPage('auton')">Auton</button>
+				</div>
 			</div>
-			<button type="button" class="nextlink button-primary" onclick="nextPage('prematch')">Prematch</button>
-			<h2>Auton</h2>
-			<div id="autonvals"></div>
-			<button type="button" class="nextlink button-primary" onclick="nextPage('auton')">Auton</button>
-			<h2>Teleop</h2>
-			<div id="teleopvals"></div>
-			<button type="button" class="nextlink button-primary" onclick="nextPage('teleop')">Teleop</button>
-			<h2>Postmatch</h2>
-			<div id="postmatchvals"></div>
-			<button type="button" class="nextlink button-primary" onclick="nextPage('postmatch')">Postmatch</button>
+			<div class="row">
+				<div id="teleopvals" class="six columns">
+					<h2>Teleop</h2>
+					<ol>
+						<li>Acquired Portal Cubes: </li>
+						<li>Acquired Exchange Cubes: </li>
+						<li>Acquired Ground Cubes: </li>
+					</ol>
+					<button type="button" class="nextlink button-primary" onclick="nextPage('teleop')">Teleop</button>
+				</div>
+				<div id="postmatchvals" class="six columns">
+					<h2>Postmatch</h2>
+					<ol>
+						<li>Climbing: </li>
+						<li>Blue score: </li>
+						<li>Red score: </li>
+					</ol>
+					<button type="button" class="nextlink button-primary" onclick="nextPage('postmatch')">Postmatch</button>
+				</div>
+			</div>
 			<button type="submit" class="u-pull-right">Submit</button>
 		</div>
 

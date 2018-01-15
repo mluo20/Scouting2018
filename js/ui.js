@@ -103,7 +103,6 @@ $(function() {
         $("#stopwatch").runner("stop");
     });
 
-
 });
 
 /**FORM HANDLING**/
@@ -200,14 +199,6 @@ $(function() {
         postmatchspans.eq(2).text(scoutingvalues["redscore"].value);
 
     });
-
-    // $('.nextlink').keyup(function(e) {
-    //     var keyCode = e.keyCode || e.which;
-    //     if (keyCode === 39) {
-    //         nextPage("auton");
-    //     }
-    //     console.log("hello");
-    // });
 
 });
 

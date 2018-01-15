@@ -234,6 +234,10 @@ textarea {
 	margin-bottom: 12px;
 }
 
+#main h2 {
+	font-size: 2.8rem;
+}
+
 #main .h2 {
 	border-bottom: 1px solid #9d9d9d;
 	padding-bottom: 10px;
@@ -241,7 +245,6 @@ textarea {
 }
 
 .h2 h2 {
-	font-size: 2.8rem;
 	margin: 0;
 	display: inline;
 }

@@ -38,8 +38,11 @@ Questions:
 
 Tables:
 	- users
+	- teams
 	- raw data
 	- times
+	- performance (linking raw data to the teams)
+	- submissions (linking raw data to the user)
 
 
 	- user database

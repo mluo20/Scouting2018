@@ -1,0 +1,107 @@
+<!--PASCACK PIONEERS TEAM 1676-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<title>Scouting UI</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/skeleton.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+
+	<header id="header">
+		<div class="container">
+		<div id="heading">
+			<h1>Pascack Pioneers</h1> <!--possibly replace with image-->
+			<nav id="menu"> <!--as seen from a full permissions user, will definitely change this later-->
+				<ul id="mainmenu" class="topnav">
+					<li><a href="testlayout.html">scout</a></li>
+					<li><a href="sueprscouting.html">superscout</a></li>
+					<li><a href="#">rawdata</a></li>
+					<li><a href="#">teams</a></li>
+					<li><a href="#">user</a></li>
+					<li><a href="#">logout</a></li>
+				</ul>
+				<a href="javascript:void(0);" class="icon" onclick="menu()">&#9776;</a>
+			</nav>
+		</div>
+		</div>
+	</header>
+
+	<div id="main">
+	<div class="container">
+
+		<h1>Super Scouting</h1>
+
+		<form action="" method="post" class="dirty-check" id="superscoutingform">
+
+			<div class="row form-row">
+				<div class="six columns">
+					<label for="climbmethod">Method of Climbing: </label>
+					<input type="text" name="climbmethod" id="climbmethod" class="u-full-width" required>
+				</div>
+				<div class="six columns">
+					<label for="autonnav">Auton navigation: </label>
+					<input type="text" name="autonnav" id="autonnav" class="u-full-width" required>
+				</div>			
+			</div>
+			<div class="row form-row">
+				<div class="six columns">
+					<label for="teleoprole">Teleop Role: </label>
+					<input type="text" name="teleoprole" id="teleoprole" class="u-full-width" required>
+				</div>
+				<div class="six columns">
+					<label for="endgamerole">Endgame Role: </label>
+					<input type="text" name="endgamerole" id="endgamerole" class="u-full-width" required>
+				</div>
+			</div>
+			<div class="row form-row">
+				<div class="six columns">
+					<label for="intakequality">Quality of Intake: </label>
+					<input type="text" name="intakequality" id="intakequality" class="u-full-width" required>
+				</div>
+				<div class="six columns">
+					<label for="climbquality">Quality of Climb: </label>
+					<input type="text" name="climbquality" id="climbquality" class="u-full-width" required>
+				</div>
+			</div>
+			<div class="row form-row">
+				<div class="12 columns">
+					<label for="comments">General comments: </label>
+					<textarea name="comments" id="comments" rows="10" class="u-full-width"></textarea>
+				</div>
+			</div>
+
+			<div class="row form-row">
+				<button type="submit" class="u-pull-right">Submit</button>
+			</div>
+
+		</form>
+
+	</div>
+	</div>
+
+	<footer id="footer">
+	<div class="container">
+		<a href="#">Contact</a> &middot; <a href="#">Report Errors</a>
+	</div>
+	</footer>
+
+	<script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/jquery.are-you-sure.js"></script>
+	<script src="js/jquery.runner-min.js"></script>
+	<script src="js/autosize.js"></script>
+	<script src="js/ui.js"></script>
+
+</body>
+
+</html>

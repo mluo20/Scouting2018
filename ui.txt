@@ -17,5 +17,8 @@ start stop
 
 -----TIMER DOES NOT WORK-----
 
+add another timer for switch and scale
+add another input for putting in exchange
+change options for the climbing form
 
 possibly switch to bootstrap?

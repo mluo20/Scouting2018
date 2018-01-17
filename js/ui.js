@@ -56,12 +56,18 @@ function menu() {
 
 /**STOPWATCH**/
 
-var claimedtimes = [];
+var claimedswitchtimes = [];
+var claimedscaletimes = [];
 
 function removeZeros() {
-    for (var i = 0; i < claimedtimes.length; i++) {
-        if (parseFloat(claimedtimes[i]) == 0) {
-            claimedtimes.splice(i, 1);
+    for (var i = 0; i < claimedswitchtimes.length; i++) {
+        if (parseFloat(claimedswitchtimes[i]) == 0) {
+            claimedswitchtimes.splice(i, 1);
+        }
+    }
+	for (var i = 0; i < claimedscaletimes.length; i++) {
+        if (parseFloat(claimedscaletimes[i]) == 0) {
+            claimedscaletimes.splice(i, 1);
         }
     }
 }
@@ -71,36 +77,39 @@ $(function() {
     $('#stopwatch').runner("init").on('runnerStart', function(eventObject, info) {
         $("#startbutton").text("Stop");
     }).on('runnerStop', function(eventObject, info) {
-        claimedtimes.push($("#stopwatch").text());
+        claimedswitchtimes.push($("#stopwatch").text());
         removeZeros();
-        $('#claimedtimes').text(claimedtimes);
+        $('#claimedtimes').text(claimedswitchtimes);
         $(this).runner("reset");
         $("#startbutton").text("Start");
     });
 
     $('#startbutton').click(function() {
-
         $('#stopwatch').runner('toggle');
-
-        // if ($(this).text() == "Stop") {
-
-
-        // }
-        // else {
-        //     alert("Current lap time: " + $('#runner').runner('lap'));
-            // $("#runner").runner("reset", true);
-            // $('#stopwatch').runner('stop');
-        //     $(this).text("Start");
-        // }
-    });
-
-    $('#lap').click(function() {
-        console.log($('#runner').runner('lap'));
     });
 
     $('#resetbutton').click(function() {
         $('#stopwatch').runner('reset');
         $("#stopwatch").runner("stop");
+    });
+
+    $('#stopwatch2').runner("init").on('runnerStart', function(eventObject, info) {
+        $("#startbutton2").text("Stop");
+    }).on('runnerStop', function(eventObject, info) {
+        claimedscaletimes.push($("#stopwatch2").text());
+        removeZeros();
+        $('#claimedtimes2').text(claimedscaletimes);
+        $(this).runner("reset");
+        $("#startbutton2").text("Start");
+    });
+
+    $('#startbutton2').click(function() {
+        $('#stopwatch2').runner('toggle');
+    });
+
+    $('#resetbutton2').click(function() {
+        $('#stopwatch2').runner('reset');
+        $("#stopwatch2").runner("stop");
     });
 
 });
@@ -185,7 +194,8 @@ $(function() {
         teleopspans.eq(0).text(scoutingvalues["portalcubes"].value);
         teleopspans.eq(1).text(scoutingvalues["exchangecubes"].value);
         teleopspans.eq(2).text(scoutingvalues["groundcubes"].value);
-        teleopspans.eq(3).text(claimedtimes);
+        teleopspans.eq(3).text(claimedswitchtimes);
+        teleopspans.eq(4).text(claimedscaletimes);
 
         var postmatchspans = $("#postmatchvals").find("span");
         var climbvalues = "";

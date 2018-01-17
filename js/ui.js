@@ -57,7 +57,9 @@ function menu() {
 /**STOPWATCH**/
 
 var claimedswitchtimes = [];
+var failedswitchtimes = [];
 var claimedscaletimes = [];
+var failedscaletimes = [];
 
 function removeZeros() {
     for (var i = 0; i < claimedswitchtimes.length; i++) {
@@ -70,22 +72,53 @@ function removeZeros() {
             claimedscaletimes.splice(i, 1);
         }
     }
+    for (var i = 0; i < failedscaletimes.length; i++) {
+        if (parseFloat(failedscaletimes[i]) == 0) {
+            failedscaletimes.splice(i, 1);
+        }
+    }
+    for (var i = 0; i < failedswitchtimes.length; i++) {
+        if (parseFloat(failedswitchtimes[i]) == 0) {
+            failedswitchtimes.splice(i, 1);
+        }
+    }
 }
 
 $(function() {
 
+	var failedswitch = false;
+
     $('#stopwatch').runner("init").on('runnerStart', function(eventObject, info) {
-        $("#startbutton").text("Stop");
+        $("#startbutton").text("Success");
     }).on('runnerStop', function(eventObject, info) {
-        claimedswitchtimes.push($("#stopwatch").text());
+
+    	if (failedswitch) {
+    		failedswitchtimes.push($("#stopwatch").text());
+    		failedswitch = false;
+    	}
+    	else {
+        	claimedswitchtimes.push($("#stopwatch").text());
+    	}
+
         removeZeros();
+<<<<<<< HEAD
+        $('#claimedtimes').text(claimedswitchtimes);
+        $('#failedtimes').text(failedswitchtimes);
+=======
         $('#claimedtimes').text(claimedswitchtimes  );
+>>>>>>> Matt-Low
         $(this).runner("reset");
         $("#startbutton").text("Start");
+
     });
 
     $('#startbutton').click(function() {
         $('#stopwatch').runner('toggle');
+    });
+
+    $('#failbutton').click(function() {
+    	$('#stopwatch').runner('stop');
+    	failedswitch = true;
     });
 
     $('#resetbutton').click(function() {
@@ -93,18 +126,32 @@ $(function() {
         $("#stopwatch").runner("stop");
     });
 
+    var failedscale = false;
+
     $('#stopwatch2').runner("init").on('runnerStart', function(eventObject, info) {
-        $("#startbutton2").text("Stop");
+        $("#startbutton2").text("Success");
     }).on('runnerStop', function(eventObject, info) {
-        claimedscaletimes.push($("#stopwatch2").text());
+    	if (failedscale) {
+    		failedscaletimes.push($("#stopwatch2").text());
+    		failedscale = false;
+    	}
+    	else {
+        	claimedscaletimes.push($("#stopwatch2").text());
+    	}
         removeZeros();
         $('#claimedtimes2').text(claimedscaletimes);
+        $('#failedtimes2').text(failedscaletimes);
         $(this).runner("reset");
         $("#startbutton2").text("Start");
     });
 
     $('#startbutton2').click(function() {
         $('#stopwatch2').runner('toggle');
+    });
+
+    $('#failbutton2').click(function() {
+    	$('#stopwatch2').runner('stop');
+    	failedscale = true;
     });
 
     $('#resetbutton2').click(function() {
@@ -133,6 +180,13 @@ function toggleForm(option) {
 	else if (option == scoutingvalues["scale2"]) {
 		document.getElementById("correctside2").style.display = "none";
         document.getElementById("c2").style.display = "none";
+	}
+	else if (option == scoutingvalues["climb2"]) {
+		document.getElementById("numofbuddies").style.display = "block";
+	}
+	else if (option == scoutingvalues["climb1"] || option == scoutingvalues["climb3"]) {
+		document.getElementById("numofbuddies").style.display = "none";
+		scoutingvalues["numofbuddies"].value = null;
 	}
 }
 
@@ -195,15 +249,16 @@ $(function() {
         teleopspans.eq(2).text(scoutingvalues["exchangecubes"].value);
         teleopspans.eq(3).text(scoutingvalues["intoexchangecubes"].value);
         teleopspans.eq(4).text(claimedswitchtimes);
-        teleopspans.eq(5).text(claimedscaletimes);
+        teleopspans.eq(5).text(failedswitchtimes);
+        teleopspans.eq(6).text(claimedscaletimes);
+        teleopspans.eq(7).text(failedscaletimes);
 
         var postmatchspans = $("#postmatchvals").find("span");
-        var climbvalues = "";
-        for (var i = 0; i < scoutingvalues["climbing[]"].length; i++) {
-            if (scoutingvalues["climbing[]"][i].checked) {
-                climbvalues += scoutingvalues["climbing[]"][i].value + " ";
-            }
+        var climbvalues = scoutingvalues["climbing"].value;
+        if (scoutingvalues["numofbuddies"].value > 0) {
+        	climbvalues += ", " + scoutingvalues["numofbuddies"].value + " buddie(s)";
         }
+
         postmatchspans.eq(0).text(climbvalues);
         postmatchspans.eq(1).text(scoutingvalues["bluescore"].value);
         postmatchspans.eq(2).text(scoutingvalues["redscore"].value);

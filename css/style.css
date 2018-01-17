@@ -72,8 +72,12 @@ input[type='text']:focus, input[type='number']:focus, textarea:focus {
 	margin-right: 5px
 }
 
-#correctside1, #correctside2, #c1, #c2 {
+#correctside1, #correctside2, #c1, #c2, #numofbuddies {
 	display: none;
+}
+
+#failedtimes, #failedtimes2 {
+	color: red;
 }
 
 .numbergroup {

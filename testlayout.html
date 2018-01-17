@@ -207,10 +207,14 @@
 						</div>
 						<div class="centercontent">
 							<button type="button" id="startbutton">Start</button>
+							<button type="button" id="failbutton">Failed</button>
 							<button type="button" id="resetbutton">Abort</button>
 						</div>
 						<div class="scroll" id="claimedtimes">
 
+						</div>
+						<div id="failedtimes">
+							
 						</div>
 					</div>
 				</div>
@@ -222,9 +226,13 @@
 						</div>
 						<div class="centercontent">
 							<button type="button" id="startbutton2">Start</button>
+							<button type="button" id="failbutton2">Failed</button>
 							<button type="button" id="resetbutton2">Abort</button>
 						</div>
 						<div class="scroll" id="claimedtimes2">
+							
+						</div>
+						<div id="failedtimes2">
 							
 						</div>
 					</div>
@@ -285,21 +293,22 @@
 				<div class="six columns">
 					<div class="selectgroup"><strong>Climbing:</strong></div>
 					<label for="climb1">
-						<input type="checkbox" name="climbing[]" value="climbed" id="climb1">
+						<input type="radio" name="climbing" value="climbed" id="climb1" onchange="toggleForm(this)">
 						<span class="label-body">Climbed</span>
 					</label>
 					<label for="climb2">
-						<input type="checkbox" name="climbing[]" value="withbuddy" id="climb2">
+						<input type="radio" name="climbing" value="withbuddy" id="climb2" onchange="toggleForm(this)">
 						<span class="label-body">Climbed with buddy</span>
 					</label>
+					<input type="number" name="numofbuddies" id="numofbuddies" placeholder="Number of buddies">
 					<label for="climb3">
-						<input type="checkbox" name="climbing[]" value="lifted" id="climb3">
-						<span class="label-body">Lifted others</span>
+						<input type="radio" name="climbing" value="none" id="climb3" onchange="toggleForm(this)" checked>
+						<span class="label-body">No climb</span>
 					</label>
-					<label for="climb4">
+					<!-- <label for="climb4">
 						<input type="checkbox" name="climbing[]" value="wasbuddy" id="climb4">
 						<span class="label-body">Was the buddy</span>
-					</label>
+					</label> -->
 				</div>
 				<div class="six columns">
 					<label for="bluescore">Blue Score:</label><input type="number" name="bluescore" id="bluescore">
@@ -345,7 +354,13 @@
 						<li>Acquired Exchange Cubes: </li>
 						<li>Placed Exchange Cubes: </li>
 						<li>Claimed Switch Times: </li>
+							<ul>
+								<li>Failed Switch Times: </li>
+							</ul>
 						<li>Claimed Scale Times: </li>
+							<ul>
+								<li>Failed Scale Times: </li>
+							</ul>
 					</ol>
 				</div>
 				<div id="postmatchvals" class="six columns">

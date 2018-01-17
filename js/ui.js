@@ -58,14 +58,23 @@ function menu() {
 
 var claimedtimes = [];
 
+function removeZeros() {
+    for (var i = 0; i < claimedtimes.length; i++) {
+        if (parseFloat(claimedtimes[i]) == 0) {
+            claimedtimes.splice(i, 1);
+        }
+    }
+}
+
 $(function() {
 
     $('#stopwatch').runner("init").on('runnerStart', function(eventObject, info) {
         $("#startbutton").text("Stop");
     }).on('runnerStop', function(eventObject, info) {
         claimedtimes.push($("#stopwatch").text());
+        removeZeros();
         $('#claimedtimes').text(claimedtimes);
-        $("#stopwatch").runner("reset");
+        $(this).runner("reset");
         $("#startbutton").text("Start");
     });
 
@@ -90,7 +99,8 @@ $(function() {
     });
 
     $('#resetbutton').click(function() {
-        $('#stopwatch').runner('reset', true);
+        $('#stopwatch').runner('reset');
+        $("#stopwatch").runner("stop");
     });
 
 

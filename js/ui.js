@@ -101,12 +101,8 @@ $(function() {
     	}
 
         removeZeros();
-<<<<<<< HEAD
         $('#claimedtimes').text(claimedswitchtimes);
         $('#failedtimes').text(failedswitchtimes);
-=======
-        $('#claimedtimes').text(claimedswitchtimes  );
->>>>>>> Matt-Low
         $(this).runner("reset");
         $("#startbutton").text("Start");
 

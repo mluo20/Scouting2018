@@ -195,12 +195,13 @@
 			</div>
 
 			<div class="row form-row">
-				<h3>Claiming</h3>
+				<h3>Claiming For</h3>
 			</div>
 
 			<div class="row form-row">
 				<div class="six columns">
 					<div class="stopwatches">
+						<h4>Scale</h4>
 						<div id="stopwatchcontainer">
 							<span id="stopwatch"></span>
 						</div>
@@ -215,6 +216,7 @@
 				</div>
 				<div class="six columns">
 					<div class="stopwatches">
+						<h4>Switch</h4>
 						<div id="stopwatchcontainer">
 							<span id="stopwatch2"></span>
 						</div>
@@ -232,7 +234,7 @@
 				<h3>Cubes obtained</h3>
 			</div>
 			<div class="row form-row">
-				<div class="four columns">
+				<div class="three columns">
 					<label for="portalcubes">From Portal:</label>
 					<div class="numbergroup">
 						<button type="button" class="decrement" onclick="decrement('portalcubes')">-</button>
@@ -240,7 +242,15 @@
 						<button type="button" class="increment" onclick="increment('portalcubes')">+</button>
 					</div>
 				</div>
-				<div class="four columns">
+				<div class="three columns">
+					<label for="groundcubes">From ground:</label>
+					<div class="numbergroup">
+						<button type="button" class="decrement" onclick="decrement('groundcubes')">-</button>
+						<input type="number" name="groundcubes" id="groundcubes" value="0">
+						<button type="button" class="increment" onclick="increment('groundcubes')">+</button>
+					</div>
+				</div>
+				<div class="three columns">
 					<label for="exchangecubes">From Exchange:</label>
 					<div class="numbergroup">
 						<button type="button" class="decrement" onclick="decrement('exchangecubes')">-</button>
@@ -248,12 +258,12 @@
 						<button type="button" class="increment" onclick="increment('exchangecubes')">+</button>
 					</div>
 				</div>
-				<div class="four columns">
-					<label for="groundcubes">From ground:</label>
+				<div class="three columns">
+					<label for="intoexchangecubes">Into Exchange:</label>
 					<div class="numbergroup">
-						<button type="button" class="decrement" onclick="decrement('groundcubes')">-</button>
-						<input type="number" name="groundcubes" id="groundcubes" value="0">
-						<button type="button" class="increment" onclick="increment('groundcubes')">+</button>
+						<button type="button" class="decrement" onclick="decrement('intoexchangecubes')">-</button>
+						<input type="number" name="intoexchangecubes" id="intoexchangecubes" value="0">
+						<button type="button" class="increment" onclick="increment('intoexchangecubes')">+</button>
 					</div>
 				</div>
 			</div>
@@ -328,8 +338,9 @@
 					<div class="h2"><h2>Teleop</h2>&nbsp;&nbsp;<a href="javascript:void(0)" onclick="nextPage('teleop')"><i class="fas fa-edit"></i>edit</a></div>
 					<ol>
 						<li>Acquired Portal Cubes: </li>
-						<li>Acquired Exchange Cubes: </li>
 						<li>Acquired Ground Cubes: </li>
+						<li>Acquired Exchange Cubes: </li>
+						<li>Placed Exchange Cubes: </li>
 						<li>Claimed Switch Times: </li>
 						<li>Claimed Scale Times: </li>
 					</ol>

@@ -48,7 +48,7 @@ input[type='text']:focus, input[type='number']:focus, textarea:focus {
 
 .form-row {
 	margin: 0 auto;
-	max-width: 650px;
+	max-width: 550px;
 }
 
 #robotstatus {
@@ -74,7 +74,7 @@ input[type='text']:focus, input[type='number']:focus, textarea:focus {
 .numbergroup input {
 	border-radius: 0px;
 	width: 30px;
-	flex: 2 2 auto;
+	flex: 1 1 auto;
 }
 
 .decrement {
@@ -83,7 +83,7 @@ input[type='text']:focus, input[type='number']:focus, textarea:focus {
 	border-right: 0;
 	margin: 0px;
 	z-index: 2;
-	width: 5px;
+	/*width: 5px;*/
 	flex: 1 1 auto;
 	font-size: 16pt;
 	height: 38px;
@@ -96,22 +96,28 @@ input[type='text']:focus, input[type='number']:focus, textarea:focus {
 	border-left: 0;
 	margin: 0px;
 	z-index: 2;
-	width: 5px;
+	/*width: 5px;*/
 	flex: 1 1 auto;
 	font-size: 16pt;
 	height: 38px;
 	padding: 0;
 }
 
+.stopwatches h4 {
+	margin: 0;
+	font-size: 2.3rem;
+	text-align: center;
+}
+
 .button-primary {
-	/*padding: 12px 20px;*/
 	background-color: #ffcc00 !important;
 	border: 0;
 	height: auto;
 	line-height: initial;
 	font-size: 10pt;
 	margin-top: 10px;
-	margin-left: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
 	color: white;
 }
 
@@ -147,6 +153,7 @@ button:hover {
 textarea {
 	resize: none;
 }
+
 /*.formgroup {
 	margin-bottom: 20px;
 }
@@ -328,7 +335,7 @@ textarea {
 	margin-bottom: 50px
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
 
 	#header {
 		height: 80px;
@@ -350,6 +357,14 @@ textarea {
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 700px) {
+
+	.hr {
+		display: none;
+	}
+
+	#stopwatchcontainer {
+		font-size: 18pt;
+	}
 
 	#header {
 		height: 60px;

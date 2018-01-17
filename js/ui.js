@@ -192,10 +192,11 @@ $(function() {
 
         var teleopspans = $("#teleopvals").find("span");
         teleopspans.eq(0).text(scoutingvalues["portalcubes"].value);
-        teleopspans.eq(1).text(scoutingvalues["exchangecubes"].value);
-        teleopspans.eq(2).text(scoutingvalues["groundcubes"].value);
-        teleopspans.eq(3).text(claimedswitchtimes);
-        teleopspans.eq(4).text(claimedscaletimes);
+        teleopspans.eq(1).text(scoutingvalues["groundcubes"].value);
+        teleopspans.eq(2).text(scoutingvalues["exchangecubes"].value);
+        teleopspans.eq(3).text(scoutingvalues["intoexchangecubes"].value);
+        teleopspans.eq(4).text(claimedswitchtimes);
+        teleopspans.eq(5).text(claimedscaletimes);
 
         var postmatchspans = $("#postmatchvals").find("span");
         var climbvalues = "";

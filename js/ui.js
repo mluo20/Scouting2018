@@ -101,8 +101,12 @@ $(function() {
     	}
 
         removeZeros();
+<<<<<<< HEAD
         $('#claimedtimes').text(claimedswitchtimes);
         $('#failedtimes').text(failedswitchtimes);
+=======
+        $('#claimedtimes').text(claimedswitchtimes  );
+>>>>>>> Matt-Low
         $(this).runner("reset");
         $("#startbutton").text("Start");
 
@@ -154,7 +158,6 @@ $(function() {
         $('#stopwatch2').runner('reset');
         $("#stopwatch2").runner("stop");
     });
-
 });
 
 /**FORM HANDLING**/

@@ -79,7 +79,7 @@ $(function() {
     }).on('runnerStop', function(eventObject, info) {
         claimedswitchtimes.push($("#stopwatch").text());
         removeZeros();
-        $('#claimedtimes').text(claimedswitchtimes);
+        $('#claimedtimes').text(claimedswitchtimes  );
         $(this).runner("reset");
         $("#startbutton").text("Start");
     });
@@ -111,7 +111,6 @@ $(function() {
         $('#stopwatch2').runner('reset');
         $("#stopwatch2").runner("stop");
     });
-
 });
 
 /**FORM HANDLING**/

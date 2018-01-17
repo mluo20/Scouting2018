@@ -26,6 +26,15 @@ a:hover {
 
 /**FORM STYLING**/
 
+/* OVERFLOW FOR TIMER */
+.scroll{
+	margin: auto;
+	background-color: grey;
+    width: 100pt;
+    height: 75pt;
+	overflow: scroll;
+}
+
 /*input {
 	font-size: 16pt;
 	padding: 5px;

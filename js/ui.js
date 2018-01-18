@@ -200,6 +200,8 @@ $(function() {
 
     });
 
+    autosize($('textarea'));
+
 });
 
 /**ARE YOU SURE**/

@@ -1,0 +1,113 @@
+<!--PASCACK PIONEERS TEAM 1676-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<title>Scouting UI</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/skeleton.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+
+	<header id="header">
+		<div class="container">
+		<div id="heading">
+			<h1>Pascack Pioneers</h1> <!--possibly replace with image-->
+			<nav id="menu"> <!--as seen from a full permissions user, will definitely change this later-->
+				<ul id="mainmenu" class="topnav">
+					<li><a href="testlayout.html">scout</a></li>
+					<li><a href="sueprscouting.html">superscout</a></li>
+					<li><a href="#">rawdata</a></li>
+					<li><a href="#">teams</a></li>
+					<li><a href="#">user</a></li>
+					<li><a href="#">logout</a></li>
+				</ul>
+				<a href="javascript:void(0);" class="icon" onclick="menu()">&#9776;</a>
+			</nav>
+		</div>
+		</div>
+	</header>
+
+	<div id="main">
+	<div class="container">			
+		<h1>Login/Signup:</h1>
+		<div class="row form-row">
+			<div class="six columns">
+				<form method="POST" action="">
+					<div class="row">
+						<h2>Login:</h2>
+						<label for="username">Username: </label>
+						<input type="text" name="username" id="username" class="u-full-width">
+						<label for="password">Password: </label>
+						<input type="password" name="password" id="password" class="u-full-width">
+						<label>Competition: </label>
+						<select name="competition" class="u-full-width">
+							<option>Bridgewater</option>
+							<option>Montgomery</option>
+							<option>Lehigh</option>
+							<option>Detroit</option>
+						</select>
+					</div>
+					<div class="row">
+						<button type="submit" class="u-pull-right">Login</button>
+					</div>
+				</form>
+			</div>
+			<div class="six columns">
+				<form method="POST" action="">
+					<div class="row">
+						<h2>Signup:</h2>
+						<div class="row">
+							<div class="six columns">
+								<label for="firstname">First Name: </label>
+								<input type="text" name="firstname" id="firstname" class="u-full-width">
+							</div>
+							<div class="six columns">
+								<label for="lastname">Last Name: </label>
+								<input type="text" name="lastname" id="lastname" class="u-full-width">
+							</div>
+						</div>
+						<label for="email">Email: </label>
+						<input type="email" name="email" required class="u-full-width">
+						<label for="newuser">Username: </label>
+						<input type="text" name="newuser" id="newuser" class="u-full-width" required>
+						<label for="newpass">Password: </label>
+						<input type="password" name="newpass" id="newpass" class="u-full-width" required>
+						<label for="passagain">Re-type Password: </label>
+						<input type="password" name="passagain" id="passagain" class="u-full-width" required>
+						<label for="team">Team: </label>
+						<input type="number" name="team" id="team" class="u-full-width" required>
+					</div>
+					<div class="row">
+						<button type="submit" class="u-pull-right">Signup</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<footer id="footer">
+	<div class="container">
+		<a href="#">Contact</a> &middot; <a href="#">Report Errors</a>
+	</div>
+	</footer>
+
+	<script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/jquery.are-you-sure.js"></script>
+	<script src="js/jquery.runner-min.js"></script>
+	<script src="js/autosize.js"></script>
+	<script src="js/ui.js"></script>
+
+</body>
+
+</html>

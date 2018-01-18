@@ -1,43 +1,6 @@
-<!--PASCACK PIONEERS TEAM 1676-->
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-	<title>Scouting UI</title>
-
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<link rel="stylesheet" type="text/css" href="css/normalize.css">
-	<link rel="stylesheet" type="text/css" href="css/skeleton.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-
-</head>
-
-<body>
-
-	<header id="header">
-		<div class="container">
-		<div id="heading">
-			<h1>Pascack Pioneers</h1> <!--possibly replace with image-->
-			<nav id="menu"> <!--as seen from a full permissions user, will definitely change this later-->
-				<ul id="mainmenu" class="topnav">
-					<li><a href="testlayout.html">scout</a></li>
-					<li><a href="sueprscouting.html">superscout</a></li>
-					<li><a href="#">rawdata</a></li>
-					<li><a href="#">teams</a></li>
-					<li><a href="#">user</a></li>
-					<li><a href="#">logout</a></li>
-				</ul>
-				<a href="javascript:void(0);" class="icon" onclick="menu()">&#9776;</a>
-			</nav>
-		</div>
-		</div>
-	</header>
-
-	<div id="main">
-	<div class="container">
+<?php
+require_once 'php/includes/header.php';
+?>
 
 		<h1>Super Scouting</h1>
 
@@ -86,22 +49,6 @@
 
 		</form>
 
-	</div>
-	</div>
-
-	<footer id="footer">
-	<div class="container">
-		<a href="#">Contact</a> &middot; <a href="#">Report Errors</a>
-	</div>
-	</footer>
-
-	<script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/jquery.are-you-sure.js"></script>
-	<script src="js/jquery.runner-min.js"></script>
-	<script src="js/autosize.js"></script>
-	<script src="js/ui.js"></script>
-
-</body>
-
-</html>
+<?php
+require_once 'php/includes/footer.php';
+?>

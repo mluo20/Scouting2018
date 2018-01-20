@@ -109,6 +109,13 @@ $(function() {
 
 var scoutingvalues = document.forms["scoutingform"];
 
+function validatePassword() {
+    if (scoutingvalues["newpass"].value != scoutingvalues["passagain"].value) { 
+        document.getElementById("signuperror").innerHTML = "Passwords are not the same";
+        return false;
+    }
+}
+
 function toggleForm(option) {
 	if (option == scoutingvalues["switch1"]) {
 		document.getElementById("correctside1").style.display = "block";

@@ -1,3 +1,8 @@
+<?php
+require_once 'php/config.php';
+require_once 'php/functions.php';
+require_once 'php/ScoutingManager.php';
+?>
 <!--PASCACK PIONEERS TEAM 1676-->
 <!DOCTYPE html>
 <html lang="en">

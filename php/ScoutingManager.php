@@ -5,8 +5,6 @@
 */
 class ScoutingManager {
 	
-	function __construct(argument) {
-		# code...
-	}
+	
 
 }

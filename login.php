@@ -1,11 +1,27 @@
 <?php
 require_once 'php/includes/header.php';
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+	if ($_POST['newpass'] != $_POST['passagain']) {
+		echo "<p color=\"red\">Passwords do not match</p>";
+	}
+	else {
+		if (register($_POST)) {
+			header("Location: ?message=success");
+		}
+	}
+}
+
+if (isset($_GET['message'])) {
+	echo "<p color=\"green\">Account successfully created</p>";
+}
+
 ?>
 
 		<h1>Login/Signup:</h1>
 		<div class="row form-row">
 			<div class="six columns">
-				<form method="POST" action="">
+				<form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
 					<div class="row">
 						<h2>Login:</h2>
 						<label for="username">Username: </label>
@@ -26,7 +42,7 @@ require_once 'php/includes/header.php';
 				</form>
 			</div>
 			<div class="six columns">
-				<form method="POST" action="">
+				<form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validatePassword();">
 					<div class="row">
 						<h2>Signup:</h2>
 						<div class="row">
@@ -56,7 +72,7 @@ require_once 'php/includes/header.php';
 				</form>
 			</div>
 		</div>
-		
+
 <?php
 require_once 'php/includes/footer.php';
 ?>

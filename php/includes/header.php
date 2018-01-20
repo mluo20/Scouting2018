@@ -1,7 +1,6 @@
 <?php
 require_once 'php/config.php';
-require_once 'php/functions.php';
-require_once 'php/ScoutingManager.php';
+
 ?>
 <!--PASCACK PIONEERS TEAM 1676-->
 <!DOCTYPE html>
@@ -9,7 +8,7 @@ require_once 'php/ScoutingManager.php';
 
 <head>
 
-	<title>Scouting UI</title>
+	<title>Scouting</title>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,12 +29,9 @@ require_once 'php/ScoutingManager.php';
 
 		<nav id="menu"> <!--as seen from a full permissions user, will definitely change this later-->
 			<ul id="mainmenu" class="topnav">
-				<li><a href="scouting.php">scout</a></li>
-				<li><a href="superscouting.php">superscout</a></li>
-				<li><a href="#">rawdata</a></li>
-				<li><a href="#">teams</a></li>
-				<li><a href="#">user</a></li>
-				<li><a href="#">logout</a></li>
+				<?php
+				echo $manager->getmenu();
+				?>
 			</ul>
 			<a href="javascript:void(0);" class="icon" onclick="menu()">&#9776;</a>
 		</nav>

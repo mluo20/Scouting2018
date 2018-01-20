@@ -1,15 +1,50 @@
 <?php
+
 require_once 'php/includes/header.php';
 
+if (isset($_SESSION['uid'])) {
+	header("Location: index.php");
+}
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-	if ($_POST['newpass'] != $_POST['passagain']) {
-		echo "<p color=\"red\">Passwords do not match</p>";
+
+	if (isset($_POST["signup"])) {
+
+		$createnew = true;
+
+		$users = User::getlist();
+		for ($i = 0; $i < count($users); $i++) { 
+			if ($_POST['email'] == $users[$i]->email || $_POST['newuser'] == $users[$i]->username) $createnew = false;
+		}
+
+		if ($_POST['newpass'] != $_POST['passagain']) {
+			echo "<p color=\"red\">Passwords do not match</p>";
+		}
+		else if (!$createnew) {
+			echo "<p color=\"red\">An account with that username or email has already been created</p>";
+		}
+		else {
+			if (register($_POST)) {
+				header("Location: ?message=success");
+			}
+		}
+
 	}
-	else {
-		if (register($_POST)) {
-			header("Location: ?message=success");
+
+	else if (isset($_POST["login"])) {
+		$result = select("users", USERVALS, "WHERE username = \"" . $_POST['username']. "\" AND password = \"" . hash("ripemd128", $_POST['password'])."\"");
+		if (count($result) == 0) {
+			echo "<p>Username or password is incorrect.</p>";
+		}
+		else {
+			$user = new User($result[0]);
+			$_SESSION['acl'] = $user->acl;
+			$_SESSION['uid'] = $user->uid;
+			$_SESSION['competition'] = $_POST["competition"];
+			header("Location: index.php");
 		}
 	}
+
 }
 
 if (isset($_GET['message'])) {
@@ -37,7 +72,7 @@ if (isset($_GET['message'])) {
 						</select>
 					</div>
 					<div class="row">
-						<button type="submit" class="u-pull-right">Login</button>
+						<button type="submit" class="u-pull-right" name="login">Login</button>
 					</div>
 				</form>
 			</div>
@@ -67,7 +102,7 @@ if (isset($_GET['message'])) {
 						<input type="number" name="team" id="team" class="u-full-width" required>
 					</div>
 					<div class="row">
-						<button type="submit" class="u-pull-right">Signup</button>
+						<button type="submit" class="u-pull-right" name="signup">Signup</button>
 					</div>
 				</form>
 			</div>

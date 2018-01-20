@@ -1,11 +1,16 @@
 <?php
+/*CONSTANTS*/
+
+session_start();
 
 define("SERVER", "localhost");
 define("USERNAME", "root");
 define("PASSWORD", "");
 define("DATABASE", "Scouting2018");
 
-const USERVALS = array("firstname", "lastname", "email", "username", "password", "team", "acl");
+const USERVALS = array("uid", "firstname", "lastname", "email", "username", "password", "team", "acl");
+
+/*FUNCTIONS*/
 
 function connect() {
 
@@ -83,12 +88,11 @@ function select($table, $tablevals, $options) {
 
 	$tablevalsstring = "";
 
-	if (gettype($tablevals) == "array") {
-		for ($i = 0; $i < sizeof($tablevals); $i++) { 
+	// if (gettype($tablevals) == "array") {
+		for ($i = 0; $i < count($tablevals); $i++) { 
 			$tablevalsstring .= $tablevals[$i] . ", ";
 		}
-	}
-	else $tablevalsstring = $tablevals;
+	// }
 
 	$tablevalsstring = substr($tablevalsstring, 0, strlen($tablevalsstring) - 2);
 
@@ -97,7 +101,7 @@ function select($table, $tablevals, $options) {
 	$result = $conn->query($query);
 
 	if (!$result) {
-		echo "Error, ask Miranda or Larry for help: " . $conn->error;
+		echo "Error, ask Miranda or Larry for help: <br> $query <br>" . $conn->error;
 	}
 
 	$rows = $result->num_rows;
@@ -109,6 +113,8 @@ function select($table, $tablevals, $options) {
 		$data[] = $result->fetch_array(MYSQLI_ASSOC);
 	}
 
+	return $data;
+
 }
 
 function update($table, $tablevals, $newvals, $location) {
@@ -118,7 +124,7 @@ function update($table, $tablevals, $newvals, $location) {
 	$newvals = assoctonum($newvals);
 
 	if (gettype($tablevals) == "array") {
-		for ($i = 0; $i < sizeof($tablevals); $i++) { 
+		for ($i = 0; $i < count($tablevals); $i++) { 
 			if (gettype($newvals[$i]) == "string") $newvals[$i] = "\"".$newvals[$i]."\"";
 			$updatestring .= $tablevals[$i] . " = " . $newvals[$i] . ", ";
 		}
@@ -136,11 +142,27 @@ function update($table, $tablevals, $newvals, $location) {
 	$result = $conn->query($query);
 
 	if (!$result) {
-		echo "Error, ask Miranda or Larry for help: " . $conn->error;
+		echo "Error, ask Miranda or Larry for help: <br> $query <br>" . $conn->error;
 	}
 
 }
 
-function delete($table, $tablevals, $location) {
+function delete($table, $location) {
+
+	$conn = connect();
+	$query = "DELETE FROM $table WHERE $location";
+	$result = $conn->query($query);
+
+	if (!$result) {
+		echo "Error, ask Miranda or Larry for help: <br> $query <br>" . $conn->error;
+	}
 
 }
+
+/*INCLUDES*/
+
+require_once 'php/functions.php';
+require_once 'php/user.php';
+require_once 'php/ScoutingManager.php';
+
+$manager = new ScoutingManager();

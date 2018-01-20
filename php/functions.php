@@ -10,7 +10,10 @@ function register($registerinfo) {
 
 	$registerinfo["newpass"] = hash("ripemd128", $newpass);
 
-	return insert("users", USERVALS, $registerinfo);
+	$tablevals = USERVALS;
+	unset($tablevals[0]);
+
+	return insert("users", $tablevals, $registerinfo);
 
 }
 

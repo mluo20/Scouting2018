@@ -3,6 +3,10 @@
     change to jquery later possibly?
 ***/
 
+function confirm_alert(node) {
+    return confirm("Are you sure you want to logout?");
+}
+
 function nextPage(page) {
 
 	// Declare all variables

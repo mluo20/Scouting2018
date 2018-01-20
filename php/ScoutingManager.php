@@ -31,7 +31,7 @@ class ScoutingManager {
 				return <<<_END
 				<li><a href="scouting.php">scout</a></li>
 				<li><a href="#">user</a></li>
-				<li><a href="php/logout.php">logout</a></li>
+				<li><a onclick="return confirm_alert(this);" href="php/logout.php">logout</a></li>
 
 _END;
 				break;
@@ -40,7 +40,7 @@ _END;
 				<li><a href="#">rawdata</a></li>
 				<li><a href="#">teams</a></li>
 				<li><a href="#">user</a></li>
-				<li><a href="php/logout.php">logout</a></li>
+				<li><a onclick="return confirm_alert(this);" href="php/logout.php">logout</a></li>
 
 _END;
 				break;
@@ -51,7 +51,7 @@ _END;
 				<li><a href="#">rawdata</a></li>
 				<li><a href="#">teams</a></li>
 				<li><a href="#">user</a></li>
-				<li><a href="php/logout.php">logout</a></li>
+				<li><a onclick="return confirm_alert(this);" href="php/logout.php">logout</a></li>
 
 _END;
 				break;
@@ -59,6 +59,10 @@ _END;
 				return false;
 				break;
 		}
+	}
+
+	public function showuserUI() {
+
 	}
 
 }

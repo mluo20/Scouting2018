@@ -1,22 +1,5 @@
 <?php
 
-function register($registerinfo) {
-
-	unset($registerinfo["passagain"]);
-	$registerinfo["team"] = (int) $registerinfo["team"];
-	$registerinfo["acl"] = 1;
-
-	extract($registerinfo);
-
-	$registerinfo["newpass"] = hash("ripemd128", $newpass);
-
-	$tablevals = USERVALS;
-	unset($tablevals[0]);
-
-	return insert("users", $tablevals, $registerinfo);
-
-}
-
 /*UTILITIES*/
 
 function cleanstring($string) {

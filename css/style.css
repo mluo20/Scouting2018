@@ -24,6 +24,10 @@ a:hover {
 	color: #D1D1D1;
 }
 
+.dataTables_wrapper {
+	overflow-x: auto;
+}
+
 /**FORM STYLING**/
 
 /*input {
@@ -183,6 +187,11 @@ textarea {
 	font-size: 3.5rem;
 }
 
+#heading h1 a {
+	text-decoration: none;
+	color: white;
+}
+
 #menu {
 	text-transform: lowercase;
 	letter-spacing: 1.5px;
@@ -226,6 +235,7 @@ textarea {
 
 #main {
 	padding-top: 30px;
+	margin-bottom: 30px;
 }
 
 #main h1 {
@@ -312,6 +322,7 @@ textarea {
 #progressbar li.active:before,  #progressbar li.active:after{
 	background: #ffcc00;
 }
+
 
 #main #prematch {
 	display: block;

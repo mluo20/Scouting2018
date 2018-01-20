@@ -2,6 +2,8 @@
 require_once 'php/includes/header.php';
 if (!isset($_SESSION['uid'])) header("Location: login.php");
 
+if (isset($_SESSION['acl']) && $_SESSION['acl'] != 3) echo "You are not authorized to look at this page";
+else {
 ?>
 
 		<h1>Super Scouting</h1>
@@ -52,5 +54,6 @@ if (!isset($_SESSION['uid'])) header("Location: login.php");
 		</form>
 
 <?php
+}
 require_once 'php/includes/footer.php';
 ?>

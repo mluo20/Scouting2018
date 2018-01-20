@@ -32,8 +32,11 @@
 
 		public static function getuser($uid) {
 			$usersarray = select("users", USERVALS, "WHERE uid = $uid");
-			$user = new User($usersarray[0]);
-			return $user;
+			if (isset($usersarray[0])) {
+				$user = new User($usersarray[0]);
+				return $user;
+			}
+			else return false;
 		}
 
 	}

@@ -164,5 +164,10 @@ function delete($table, $location) {
 require_once 'php/functions.php';
 require_once 'php/user.php';
 require_once 'php/ScoutingManager.php';
+require_once 'php/Exception.php';
+require_once 'php/PHPMailer.php';
+require_once 'php/SMTP.php';
 
 $manager = new ScoutingManager();
+
+// $mail = new PHPMailer;

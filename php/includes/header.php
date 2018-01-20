@@ -15,6 +15,7 @@ require_once 'php/config.php';
 
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/skeleton.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/b-1.5.1/b-html5-1.5.1/datatables.min.css"/>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
@@ -25,7 +26,7 @@ require_once 'php/config.php';
 	<div class="container">
 
 		<div id="heading">
-			<h1>Pascack Pioneers</h1> <!--possibly replace with image-->
+			<h1><a href="index.php">Pascack Pioneers</a></h1> <!--possibly replace with image-->
 
 		<nav id="menu"> <!--as seen from a full permissions user, will definitely change this later-->
 			<ul id="mainmenu" class="topnav">

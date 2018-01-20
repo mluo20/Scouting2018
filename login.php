@@ -18,13 +18,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 		}
 
 		if ($_POST['newpass'] != $_POST['passagain']) {
-			echo "<p color=\"red\">Passwords do not match</p>";
+			echo "<p style=\"color:red\">Passwords do not match</p>";
 		}
 		else if (!$createnew) {
-			echo "<p color=\"red\">An account with that username or email has already been created</p>";
+			echo "<p style=\"color:red\">An account with that username or email has already been created</p>";
 		}
 		else {
-			if (register($_POST)) {
+			if ($manager->register($_POST)) {
 				header("Location: ?message=success");
 			}
 		}
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	else if (isset($_POST["login"])) {
 		$result = select("users", USERVALS, "WHERE username = \"" . $_POST['username']. "\" AND password = \"" . hash("ripemd128", $_POST['password'])."\"");
 		if (count($result) == 0) {
-			echo "<p>Username or password is incorrect.</p>";
+			echo "<p style=\"color:red\">Username or password is incorrect.</p>";
 		}
 		else {
 			$user = new User($result[0]);
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 if (isset($_GET['message'])) {
-	echo "<p color=\"green\">Account successfully created</p>";
+	echo "<p style=\"color:green\">Account successfully created</p>";
 }
 
 ?>
@@ -65,10 +65,10 @@ if (isset($_GET['message'])) {
 						<input type="password" name="password" id="password" class="u-full-width">
 						<label>Competition: </label>
 						<select name="competition" class="u-full-width">
-							<option>Bridgewater</option>
-							<option>Montgomery</option>
-							<option>Lehigh</option>
-							<option>Detroit</option>
+							<option value="bridgewater">Bridgewater</option>
+							<option value="montgomery">Montgomery</option>
+							<option value="lehigh">Lehigh</option>
+							<option value="detroit">Detroit</option>
 						</select>
 					</div>
 					<div class="row">

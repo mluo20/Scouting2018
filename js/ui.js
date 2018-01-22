@@ -100,8 +100,13 @@ $(function() {
         	claimedswitchtimes.push($("#stopwatch").text());
     	}
 
+        var tempArray = [];
+        for (var i = 0; i < claimedswitchtimes.length; i++){
+            tempArray[i] = (i + 1) + ": " + claimedswitchtimes[i] + "<br>";
+        }
+
         removeZeros();
-        $('#claimedtimes').text(claimedswitchtimes);
+        $('#claimedtimes').html(tempArray);
         $('#failedtimes').text(failedswitchtimes);
         $(this).runner("reset");
         $("#startbutton").text("Start");

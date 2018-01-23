@@ -39,14 +39,14 @@ a:hover {
 
 .scrollLeft{
 	float: left;
-    width: 50pt;
+    width: 80pt;
     height: 100pt;
 	overflow: scroll;
 }
 
 .scrollRight{
 	float: right;
-    width: 50pt;
+    width: 80pt;
     height: 100pt;
 	overflow: scroll;
 }

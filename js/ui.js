@@ -102,7 +102,7 @@ $(function() {
 
         var tempClaimedArray1 = [];
         for (var i = 0; i < claimedswitchtimes.length; i++){
-            tempClaimedArray1[i] = "<span onclick='delete("+i+")'>" + (i + 1) + ": " + claimedswitchtimes[i] + "</span>" + "<br>";
+            tempClaimedArray1[i] = "<span onclick='deleteTime("+i+")' id='cSwitchTime"+i+"'>" + (i + 1) + ": " + claimedswitchtimes[i] + "</span>" + "<br>";
         }
 
         var tempFailedArray1 = [];
@@ -165,6 +165,12 @@ $(function() {
         $("#stopwatch2").runner("stop");
     });
 });
+
+function deleteTime(i){
+	$("#cSwitchTime"+i).click(function() {
+		$(this).remove();
+	});
+}
 
 /**FORM HANDLING**/
 

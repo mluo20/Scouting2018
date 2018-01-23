@@ -100,14 +100,19 @@ $(function() {
         	claimedswitchtimes.push($("#stopwatch").text());
     	}
 
-        var tempArray = [];
+        var tempClaimedArray1 = [];
         for (var i = 0; i < claimedswitchtimes.length; i++){
-            tempArray[i] = (i + 1) + ": " + claimedswitchtimes[i] + "<br>";
+            tempClaimedArray1[i] = "<span onclick='delete("+i+")'>" + (i + 1) + ": " + claimedswitchtimes[i] + "</span>" + "<br>";
+        }
+
+        var tempFailedArray1 = [];
+        for (var i = 0; i < failedswitchtimes.length; i++){
+            tempFailedArray1[i] = (i + 1) + ": " + failedswitchtimes[i] + "<br>";
         }
 
         removeZeros();
-        $('#claimedtimes').html(tempArray);
-        $('#failedtimes').text(failedswitchtimes);
+        $('#claimedtimes').html(tempClaimedArray1);
+        $('#failedtimes').html(tempFailedArray1);
         $(this).runner("reset");
         $("#startbutton").text("Start");
 

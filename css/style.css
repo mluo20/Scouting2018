@@ -37,9 +37,15 @@ a:hover {
   -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 
-.scroll{
-	margin: auto;
-	/*background-color: grey;*/
+.scrollLeft{
+	float: left;
+    width: 50pt;
+    height: 100pt;
+	overflow: scroll;
+}
+
+.scrollRight{
+	float: right;
     width: 50pt;
     height: 100pt;
 	overflow: scroll;

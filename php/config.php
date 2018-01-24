@@ -4,11 +4,11 @@
 session_start();
 
 define("SERVER", "localhost");
-define("USERNAME", "root");
-define("PASSWORD", "");
+define("USERNAME", "scouting2018");
+define("PASSWORD", "Pioneers#1676");
 define("DATABASE", "Scouting2018");
 
-const USERVALS = array("uid", "firstname", "lastname", "email", "username", "password", "team", "acl");
+const USERVALS = array("id", "firstname", "lastname", "email", "profile_pic", "id_token", "team", "acl");
 
 /*FUNCTIONS*/
 

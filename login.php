@@ -55,8 +55,9 @@ if (isset($_GET['message'])) {
 
 		<h1>Login/Signup:</h1>
 		<div class="row form-row">
-			<div class="six columns">
-				<form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+			<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+			<!-- <div class="six columns">
+				<form method="POST" action="">
 					<div class="row">
 						<h2>Login:</h2>
 						<label for="username">Username: </label>
@@ -77,7 +78,7 @@ if (isset($_GET['message'])) {
 				</form>
 			</div>
 			<div class="six columns">
-				<form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validatePassword();">
+				<form method="POST" action="" onsubmit="return validatePassword();">
 					<div class="row">
 						<h2>Signup:</h2>
 						<div class="row">
@@ -105,7 +106,7 @@ if (isset($_GET['message'])) {
 						<button type="submit" class="u-pull-right" name="signup">Signup</button>
 					</div>
 				</form>
-			</div>
+			</div> -->
 		</div>
 
 <?php

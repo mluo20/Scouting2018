@@ -19,7 +19,7 @@ class ScoutingManager {
 
 	public function getmenu() {
 		$acl = gettype($this->activeuser) == 'object' ? $this->activeuser->acl : $this->activeuser;
-		$id = gettype($this->activeuser) == 'object' ? $this->activeuser->uid : $this->activeuser;
+		$id = gettype($this->activeuser) == 'object' ? $this->activeuser->id : $this->activeuser;
 		//0 = not logged in
 		//1 = regular user
 		//2 = outside team member

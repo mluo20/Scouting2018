@@ -15,6 +15,7 @@
 	<script src="js/jquery.are-you-sure.js"></script>
 	<script src="js/jquery.runner-min.js"></script>
 	<script src="js/autosize.js"></script>
+	<script src="js/authenticate.js"></script>
 	<script src="js/ui.js"></script>
 
 	<script type="text/javascript">

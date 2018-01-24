@@ -12,6 +12,9 @@ require_once 'php/config.php';
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="858870929012-7f54raubtn687sdih3tnhobtoj3d66g0.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/skeleton.css">

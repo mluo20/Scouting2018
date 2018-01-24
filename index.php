@@ -1,7 +1,9 @@
 <?php
+require_once 'php/config.php';
+
 require_once 'php/includes/header.php';
 
-if (!isset($_SESSION['uid'])) header("Location: login.php");
+if (!isset($_SESSION['id'])) header("Location: login.php");
 
 ?>
 

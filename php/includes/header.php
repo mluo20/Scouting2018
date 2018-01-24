@@ -1,7 +1,3 @@
-<?php
-require_once 'php/config.php';
-
-?>
 <!--PASCACK PIONEERS TEAM 1676-->
 <!DOCTYPE html>
 <html lang="en">

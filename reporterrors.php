@@ -1,4 +1,8 @@
 <?php
+// SEVERELY BROKEN PLEASE FIX
+
+require_once 'php/config.php';
+
 require_once 'php/includes/header.php';
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {

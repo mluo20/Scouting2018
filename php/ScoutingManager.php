@@ -32,7 +32,7 @@ class ScoutingManager {
 				return <<<_END
 				<li><a href="scouting.php">scout</a></li>
 				<li><a href="userpage.php?id=$id">user</a></li>
-				<li><a onclick="return confirm_alert(this);" href="php/logout.php">logout</a></li>
+				<li><a onclick="signOut()" href="php/logout.php">logout</a></li>
 
 _END;
 				break;
@@ -41,7 +41,7 @@ _END;
 				<li><a href="rawdata.php">rawdata</a></li>
 				<li><a href="teams.php">teams</a></li>
 				<li><a href="userpage.php?id=$id">user</a></li>
-				<li><a onclick="return confirm_alert(this);" href="php/logout.php">logout</a></li>
+				<li><a onclick="signOut()" href="php/logout.php">logout</a></li>
 
 _END;
 				break;
@@ -52,7 +52,7 @@ _END;
 				<li><a href="rawdata.php">rawdata</a></li>
 				<li><a href="teams.php">teams</a></li>
 				<li><a href="userpage.php?id=$id">user</a></li>
-				<li><a onclick="return confirm_alert(this);" href="php/logout.php">logout</a></li>
+				<li><a onclick="signOut()" href="php/logout.php">logout</a></li>
 
 _END;
 				break;
@@ -122,13 +122,9 @@ _END;
 
 		unset($registerinfo["passagain"]);
 		unset($registerinfo["signup"]);
-		$registerinfo["team"] = (int) $registerinfo["team"];
-		if ($registerinfo["team"] == 1676) $registerinfo["acl"] = 1;
-		else $registerinfo["acl"] = 2;
+		if ($registerinfo["team"] != null ) $registerinfo["team"] = (int) $registerinfo["team"];
 
 		extract($registerinfo);
-
-		$registerinfo["newpass"] = hash("ripemd128", $newpass);
 
 		$tablevals = USERVALS;
 		unset($tablevals[0]);

@@ -30,7 +30,16 @@
 			return $usersarray;
 		}
 
-		public static function getuser($uid) {
+		public static function getviatoken($id_token) {
+			$usersarray = select("users", USERVALS, "WHERE id_token = $id_token");
+			if (isset($usersarray[0])) {
+				$user = new User($usersarray[0]);
+				return $user;
+			}
+			else return false;
+		}
+
+		public static function getuser($id) {
 			$usersarray = select("users", USERVALS, "WHERE id = $id");
 			if (isset($usersarray[0])) {
 				$user = new User($usersarray[0]);

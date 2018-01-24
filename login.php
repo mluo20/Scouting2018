@@ -1,8 +1,7 @@
 <?php
+require_once 'php/config.php';
 
-require_once 'php/includes/header.php';
-
-if (isset($_SESSION['uid'])) {
+if (isset($_SESSION['id'])) {
 	header("Location: index.php");
 }
 
@@ -14,48 +13,62 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 		$users = User::getlist();
 		for ($i = 0; $i < count($users); $i++) { 
-			if ($_POST['email'] == $users[$i]->email || $_POST['newuser'] == $users[$i]->username) $createnew = false;
+			if ($_POST['email'] == $users[$i]->email || $_POST['id_token'] == $users[$i]->id_token) $createnew = false;
 		}
+		
+		if ($createnew) {
+			$manager->register($_POST);
+			// echo "<p style=\"color:red\">An account with that username or email has already been created</p>";
+		}
+		// else {
+		// 	if ($manager->register($_POST)) {
+		// 		header("Location: ?message=success");
+		// 	}
+		// }
 
-		if ($_POST['newpass'] != $_POST['passagain']) {
-			echo "<p style=\"color:red\">Passwords do not match</p>";
-		}
-		else if (!$createnew) {
-			echo "<p style=\"color:red\">An account with that username or email has already been created</p>";
-		}
-		else {
-			if ($manager->register($_POST)) {
-				header("Location: ?message=success");
-			}
-		}
+
+		$loggeduser = User::getviatoken($_POST['id_token']);
+
+		$_SESSION['id'] = $loggeduser->id;
+		$_SESSION['acl'] = $loggeduser->acl;
+
+		header("Location: index.php");
 
 	}
 
-	else if (isset($_POST["login"])) {
-		$result = select("users", USERVALS, "WHERE username = \"" . $_POST['username']. "\" AND password = \"" . hash("ripemd128", $_POST['password'])."\"");
-		if (count($result) == 0) {
-			echo "<p style=\"color:red\">Username or password is incorrect.</p>";
-		}
-		else {
-			$user = new User($result[0]);
-			$_SESSION['acl'] = $user->acl;
-			$_SESSION['uid'] = $user->uid;
-			$_SESSION['competition'] = $_POST["competition"];
-			header("Location: index.php");
-		}
-	}
+	// else if (isset($_POST["login"])) {
+	// 	$result = select("users", USERVALS, "WHERE username = \"" . $_POST['username']. "\" AND password = \"" . hash("ripemd128", $_POST['password'])."\"");
+	// 	if (count($result) == 0) {
+	// 		echo "<p style=\"color:red\">Username or password is incorrect.</p>";
+	// 	}
+	// 	else {
+	// 		$user = new User($result[0]);
+	// 		$_SESSION['acl'] = $user->acl;
+	// 		$_SESSION['uid'] = $user->uid;
+	// 		$_SESSION['competition'] = $_POST["competition"];
+	// 		header("Location: index.php");
+	// 	}
+	// }
 
 }
 
-if (isset($_GET['message'])) {
-	echo "<p style=\"color:green\">Account successfully created</p>";
-}
+require_once 'php/includes/header.php';
 
 ?>
 
 		<h1>Login/Signup:</h1>
 		<div class="row form-row">
 			<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+			<form method="POST" id="authenticate" action="">
+				<input type="hidden" name="firstname">
+				<input type="hidden" name="lastname">
+				<input type="hidden" name="email">
+				<input type="hidden" name="profile_pic">
+				<input type="hidden" name="id_token">
+				<input type="hidden" name="team">
+				<input type="hidden" name="acl">
+			</form>
+			<a onclick="signOut()" href="javascript:void(0)">sign out</a>
 			<!-- <div class="six columns">
 				<form method="POST" action="">
 					<div class="row">

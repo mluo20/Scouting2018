@@ -1,0 +1,14 @@
+[23-Jan-2018 22:57:28 UTC] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/team1676admin/public_html/(scouting)/beta/php/config.php on line 17
+[23-Jan-2018 23:00:10 UTC] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'team1676'@'localhost' (using password: YES) in /home/team1676admin/public_html/(scouting)/beta/php/config.php on line 17
+[23-Jan-2018 23:02:34 UTC] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'team1676'@'localhost' (using password: YES) in /home/team1676admin/public_html/(scouting)/beta/php/config.php on line 17
+[23-Jan-2018 23:02:46 UTC] PHP Notice:  Trying to get property of non-object in /home/team1676admin/public_html/(scouting)/beta/php/config.php on line 107
+[23-Jan-2018 23:02:47 UTC] PHP Notice:  Trying to get property of non-object in /home/team1676admin/public_html/(scouting)/beta/php/config.php on line 107
+[23-Jan-2018 23:09:37 UTC] PHP Notice:  Trying to get property of non-object in /home/team1676admin/public_html/(scouting)/beta/php/config.php on line 107
+[24-Jan-2018 03:53:57 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/team1676admin/public_html/(scouting)/beta/login.php on line 22
+[24-Jan-2018 03:54:11 UTC] PHP Warning:  require_once(php/includes/config.php): failed to open stream: No such file or directory in /home/team1676admin/public_html/(scouting)/beta/index.php on line 2
+[24-Jan-2018 03:54:11 UTC] PHP Fatal error:  require_once(): Failed opening required 'php/includes/config.php' (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/team1676admin/public_html/(scouting)/beta/index.php on line 2
+[24-Jan-2018 03:54:28 UTC] PHP Warning:  require_once(php/includes/config.php): failed to open stream: No such file or directory in /home/team1676admin/public_html/(scouting)/beta/index.php on line 2
+[24-Jan-2018 03:54:28 UTC] PHP Fatal error:  require_once(): Failed opening required 'php/includes/config.php' (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/team1676admin/public_html/(scouting)/beta/index.php on line 2
+[24-Jan-2018 03:58:42 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/team1676admin/public_html/(scouting)/beta/php/ScoutingManager.php on line 125
+[24-Jan-2018 03:58:49 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/team1676admin/public_html/(scouting)/beta/login.php on line 22
+[24-Jan-2018 03:58:57 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/team1676admin/public_html/(scouting)/beta/login.php on line 22

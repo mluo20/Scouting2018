@@ -5,52 +5,52 @@ if (isset($_SESSION['id'])) {
 	header("Location: index.php");
 }
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+// if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-	if (isset($_POST["signup"])) {
+// 	if (isset($_POST["signup"])) {
 
-		$createnew = true;
+// 		$createnew = true;
 
-		$users = User::getlist();
-		for ($i = 0; $i < count($users); $i++) { 
-			if ($_POST['email'] == $users[$i]->email || $_POST['id_token'] == $users[$i]->id_token) $createnew = false;
-		}
+// 		$users = User::getlist();
+// 		for ($i = 0; $i < count($users); $i++) { 
+// 			if ($_POST['email'] == $users[$i]->email || $_POST['id_token'] == $users[$i]->id_token) $createnew = false;
+// 		}
 		
-		if ($createnew) {
-			$manager->register($_POST);
-			// echo "<p style=\"color:red\">An account with that username or email has already been created</p>";
-		}
-		// else {
-		// 	if ($manager->register($_POST)) {
-		// 		header("Location: ?message=success");
-		// 	}
-		// }
+// 		if ($createnew) {
+// 			$manager->register($_POST);
+// 			// echo "<p style=\"color:red\">An account with that username or email has already been created</p>";
+// 		}
+// 		// else {
+// 		// 	if ($manager->register($_POST)) {
+// 		// 		header("Location: ?message=success");
+// 		// 	}
+// 		// }
 
 
-		$loggeduser = User::getviatoken($_POST['id_token']);
+// 		$loggeduser = User::getviatoken($_POST['id_token']);
 
-		$_SESSION['id'] = $loggeduser->id;
-		$_SESSION['acl'] = $loggeduser->acl;
+// 		$_SESSION['id'] = $loggeduser->id;
+// 		$_SESSION['acl'] = $loggeduser->acl;
 
-		header("Location: index.php");
+// 		header("Location: index.php");
 
-	}
+// 	}
 
-	// else if (isset($_POST["login"])) {
-	// 	$result = select("users", USERVALS, "WHERE username = \"" . $_POST['username']. "\" AND password = \"" . hash("ripemd128", $_POST['password'])."\"");
-	// 	if (count($result) == 0) {
-	// 		echo "<p style=\"color:red\">Username or password is incorrect.</p>";
-	// 	}
-	// 	else {
-	// 		$user = new User($result[0]);
-	// 		$_SESSION['acl'] = $user->acl;
-	// 		$_SESSION['uid'] = $user->uid;
-	// 		$_SESSION['competition'] = $_POST["competition"];
-	// 		header("Location: index.php");
-	// 	}
-	// }
+// 	// else if (isset($_POST["login"])) {
+// 	// 	$result = select("users", USERVALS, "WHERE username = \"" . $_POST['username']. "\" AND password = \"" . hash("ripemd128", $_POST['password'])."\"");
+// 	// 	if (count($result) == 0) {
+// 	// 		echo "<p style=\"color:red\">Username or password is incorrect.</p>";
+// 	// 	}
+// 	// 	else {
+// 	// 		$user = new User($result[0]);
+// 	// 		$_SESSION['acl'] = $user->acl;
+// 	// 		$_SESSION['uid'] = $user->uid;
+// 	// 		$_SESSION['competition'] = $_POST["competition"];
+// 	// 		header("Location: index.php");
+// 	// 	}
+// 	// }
 
-}
+// }
 
 require_once 'php/includes/header.php';
 
@@ -59,14 +59,14 @@ require_once 'php/includes/header.php';
 		<h1>Login/Signup:</h1>
 		<div class="row form-row">
 			<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-			<form method="POST" id="authenticate" action="">
-				<input type="hidden" name="firstname">
-				<input type="hidden" name="lastname">
-				<input type="hidden" name="email">
-				<input type="hidden" name="profile_pic">
-				<input type="hidden" name="id_token">
-				<input type="hidden" name="team">
-				<input type="hidden" name="acl">
+			<form method="POST" id="authenticate" action="authenticate.php">
+				<input type="hidden" name="firstname" value="">
+				<input type="hidden" name="lastname" value="">
+				<input type="hidden" name="email" value="">
+				<input type="hidden" name="profile_pic" value="">
+				<input type="hidden" name="id_token" value="">
+				<input type="hidden" name="team" value="">
+				<input type="hidden" name="acl" value="">
 			</form>
 			<a onclick="signOut()" href="javascript:void(0)">sign out</a>
 			<!-- <div class="six columns">

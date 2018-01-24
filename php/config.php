@@ -24,63 +24,63 @@ function connect() {
 
 function insert($table, $tablevals, $values) {
 
-	// $tablevalsstring = "";
-	// $datavalsstring = "";
-
-	// for ($i = 0; $i < sizeof($tablevals); $i++) { 
-	// 	$tablevalsstring .= $tablevals[$i] . ", ";
-	// }
-	// foreach ($values as $key => $value) {
-	// 	if (gettype($value) == "string") $datavalsstring .= "\"" . $value . "\"" . ", ";
-	// 	else $datavalsstring .= $value . ", ";
-	// }
-
-	// $tablevalsstring = substr($tablevalsstring, 0, strlen($tablevalsstring) - 2);
-	// $datavalsstring = substr($datavalsstring, 0, strlen($datavalsstring) - 2);
-
-	// $conn = connect();
-	// $query = "INSERT INTO $table ($tablevalsstring) VALUES ($datavalsstring)";
-	// $result = $conn->query($query);
-
-	// if (!$result) {
-	// 	echo "Error, ask Miranda or Larry for help: " . $conn->error;
-	// }
-
-	// return $result;
-
 	$tablevalsstring = "";
-	$typestring = "";
-	$questionmarks = "";
+	$datavalsstring = "";
 
-	for ($i = 0; $i < count($tablevals); $i++) { 
+	for ($i = 0; $i < sizeof($tablevals); $i++) { 
 		$tablevalsstring .= $tablevals[$i] . ", ";
-		$questionmarks .= "?, ";
 	}
-
 	foreach ($values as $key => $value) {
-		if (gettype($value) == "string") $typestring .= "s";
-		else if (gettype($value) == "integer") $typestring .= "i";
-		else if (gettype($value) == "double") $typestring .= "d";
-		else $typestring .= "b";
+		if (gettype($value) == "string") $datavalsstring .= "\"" . $value . "\"" . ", ";
+		else $datavalsstring .= $value . ", ";
 	}
 
 	$tablevalsstring = substr($tablevalsstring, 0, strlen($tablevalsstring) - 2);
-	$questionmarks = substr($questionmarks, 0, strlen($questionmarks) - 2);
-
-	$type = &$typestring;
-
-	$params = arraytoref($values);
+	$datavalsstring = substr($datavalsstring, 0, strlen($datavalsstring) - 2);
 
 	$conn = connect();
-	$sql = "INSERT INTO $table ($tablevalsstring) VALUES ($questionmarks)";
-	$stmt = $conn->prepare($sql);
-	if (!$stmt) echo "Error, ask Miranda or Larry for help: <br> $sql <br>" . $conn->error;
+	$query = "INSERT INTO $table ($tablevalsstring) VALUES ($datavalsstring)";
+	$result = $conn->query($query);
 
-	call_user_func_array(array($stmt, "bind_param"), array_merge(array($type), $params));
-	$stmt->execute();
-	$stmt->close();
+	if (!$result) {
+		echo "Error, ask Miranda or Larry for help: " . $conn->error;
+	}
 
-	return true;
+	return $result;
+
+	// $tablevalsstring = "";
+	// $typestring = "";
+	// $questionmarks = "";
+
+	// for ($i = 0; $i < count($tablevals); $i++) { 
+	// 	$tablevalsstring .= $tablevals[$i] . ", ";
+	// 	$questionmarks .= "?, ";
+	// }
+
+	// foreach ($values as $key => $value) {
+	// 	if (gettype($value) == "string") $typestring .= "s";
+	// 	else if (gettype($value) == "integer") $typestring .= "i";
+	// 	else if (gettype($value) == "double") $typestring .= "d";
+	// 	else $typestring .= "b";
+	// }
+
+	// $tablevalsstring = substr($tablevalsstring, 0, strlen($tablevalsstring) - 2);
+	// $questionmarks = substr($questionmarks, 0, strlen($questionmarks) - 2);
+
+	// $type = &$typestring;
+
+	// $params = arraytoref($values);
+
+	// $conn = connect();
+	// $sql = "INSERT INTO $table ($tablevalsstring) VALUES ($questionmarks)";
+	// $stmt = $conn->prepare($sql);
+	// if (!$stmt) echo "Error, ask Miranda or Larry for help: <br> $sql <br>" . $conn->error;
+
+	// call_user_func_array(array($stmt, "bind_param"), array_merge(array($type), $params));
+	// $stmt->execute();
+	// $stmt->close();
+
+	// return true;
 
 }
 
@@ -104,15 +104,14 @@ function select($table, $tablevals, $options) {
 		echo "Error, ask Miranda or Larry for help: <br> $query <br>" . $conn->error;
 	}
 
-	$rows = $result->num_rows;
-
 	$data = array();
 
+	$rows = $result->num_rows;
 	for ($i=0; $i < $rows; $i++) { 
 		$result->data_seek($i);
 		$data[] = $result->fetch_array(MYSQLI_ASSOC);
 	}
-
+	
 	return $data;
 
 }

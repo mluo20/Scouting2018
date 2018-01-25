@@ -65,6 +65,7 @@ var tempClaimedArray2 = [];
 var failedscaletimes = [];
 var tempFailedArray2 = [];
 
+
 function removeZeros() {
     for (var i = 0; i < claimedswitchtimes.length; i++) {
         if (parseFloat(claimedswitchtimes[i]) == 0) {
@@ -89,6 +90,9 @@ function removeZeros() {
 }
 
 $(function() {
+    if(claimedswitchtimes != null){
+        var p = 0;
+    }
 
 	var failedswitch = false;
 
@@ -104,8 +108,15 @@ $(function() {
         	claimedswitchtimes.push($("#stopwatch").text());
     	}
         
-        for (var i = 0; i < claimedswitchtimes.length; i++){
-            tempClaimedArray1[i] = "<span onclick='deleteTime("+i+")' id='cSwitchTime"+i+"'> " + (i + 1) + ": " + claimedswitchtimes[i] + "</span>" + "<br>";
+        for (var i = p; i < claimedswitchtimes.length; i++){
+            for(var x = 0; x < 1; x++){
+                var temp = claimedswitchtimes[i];
+                if(temp.indexOf("<")){
+                    console.log("hi rob");
+                    tempClaimedArray1[i] = "<span onclick='deleteTime("+i+")' id='cSwitchTime"+i+"'> " + (i + 1) + ": " + claimedswitchtimes[i] + "</span>" + "<br>";
+                }
+            }
+            p=i;
         }
         
         // for (var i = 0; i < failedswitchtimes.length; i++){

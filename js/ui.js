@@ -63,7 +63,7 @@ var tempFailedArray1 = [];
 var claimedscaletimes = [];
 var tempClaimedArray2 = [];
 var failedscaletimes = [];
-var tempFailedArray1 = [];
+var tempFailedArray2 = [];
 
 function removeZeros() {
     for (var i = 0; i < claimedswitchtimes.length; i++) {
@@ -88,7 +88,6 @@ function removeZeros() {
     }
 }
 
-
 $(function() {
 
 	var failedswitch = false;
@@ -104,18 +103,14 @@ $(function() {
     	else {
         	claimedswitchtimes.push($("#stopwatch").text());
     	}
-
-        var tempFailedArray1 = [];
         
         for (var i = 0; i < claimedswitchtimes.length; i++){
-            tempClaimedArray1[i] = "<span onclick='deleteTime("+i+")' id='cSwitchTime"+i+"'>" + (i + 1) + ": " + claimedswitchtimes[i] + "</span>" + "<br>";
+            tempClaimedArray1[i] = "<span onclick='deleteTime("+i+")' id='cSwitchTime"+i+"'> " + (i + 1) + ": " + claimedswitchtimes[i] + "</span>" + "<br>";
         }
         
-        for (var i = 0; i < failedswitchtimes.length; i++){
-            tempFailedArray1[i] = "<span onclick='deleteTime("+i+")' id='cFailedTime"+i+"'>" + (i + 1) + ": " + failedswitchtimes[i] + "</span>" + "<br>";
-        }
-
-        
+        // for (var i = 0; i < failedswitchtimes.length; i++){
+        //     tempFailedArray1[i] = "<span onclick='deleteTime("+i+")' id='cFailedTime"+i+"'>" + (i + 1) + ": " + failedswitchtimes[i] + "</span>" + "<br>";
+        // }
 
         removeZeros();
         $('#claimedtimes').html(tempClaimedArray1);
@@ -173,21 +168,10 @@ $(function() {
 });
 
 function deleteTime(i){
-    if($('#cSwitchTime'+i).click())
-    {
-        (function(){
-        tempClaimedArray1.splice(i,1);
-        claimedswitchtimes = tempClaimedArray1;
-        $('#claimedtimes').html(tempClaimedArray1);
-        });
-    }
-    // if($('#cFailedTime'+i).click(function(){
-    //     tempFailedArray1.splice(i,1);
-    //     failedswitchtimes = tempFailedArray1;
-    //     $('#failedtimes').html(tempFailedArray1);
-    // });)
+    tempClaimedArray1.splice(i,1);
+    claimedswitchtimes = tempClaimedArray1;
+    $('#claimedtimes').html(tempClaimedArray1);
 }
-
 /**FORM HANDLING**/
 
 var scoutingvalues = document.forms["scoutingform"];

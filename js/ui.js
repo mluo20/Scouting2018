@@ -64,6 +64,7 @@ var claimedscaletimes = [];
 var tempClaimedArray2 = [];
 var failedscaletimes = [];
 var tempFailedArray2 = [];
+var p =0;
 
 function removeZeros() {
     for (var i = 0; i < claimedswitchtimes.length; i++) {
@@ -104,16 +105,30 @@ $(function() {
         	claimedswitchtimes.push($("#stopwatch").text());
     	}
         
-        for (var i = 0; i < claimedswitchtimes.length; i++){
-            tempClaimedArray1 = claimedswitchtimes;
-            //tempClaimedArray1.splice(tempClaimedArray1.length,0,"hi");
-            console.log(tempClaimedArray1.length);
-            tempClaimedArray1[i] = "<span onclick='deleteTime("+i+")' id='cSwitchTime"+i+"'> " + (i + 1) + ": " + claimedswitchtimes[i] + "</span>" + "<br>";
-        }
-        
-        // for (var i = 0; i < failedswitchtimes.length; i++){
-        //     tempFailedArray1[i] = "<span onclick='deleteTime("+i+")' id='cFailedTime"+i+"'>" + (i + 1) + ": " + failedswitchtimes[i] + "</span>" + "<br>";
+        // for (var i = p; i < claimedswitchtimes.length; i++){
+        //     for(var x = 0; x < 1; x++){
+        //         var temp = claimedswitchtimes[i];
+        //         if(temp.indexOf(":")!= -1){
+        //             console.log("working");
+        //             tempClaimedArray1[i] = claimedswitchtimes[i];
+        //         }
+        //         else{
+        //             tempClaimedArray1[i] = "<span id='cSwitchTime"+i+"'> " + (i + 1) + ": " + claimedswitchtimes[i] + " " + "</span>" + "<i onclick='deleteTime("+i+")' class='far fa-times-circle x'></i>" + "<br>";
+        //         }
+        //     }
+        //     p=i;
         // }
+
+        for (var i = 0; i < claimedswitchtimes.length; i++){
+            if(claimedswitchtimes[i].indexOf(":")!=-1){
+                //tempClaimedArray1[i] = "<span id='cSwitchTime"+i+"'> " + (i + 1) + ": " + claimedswitchtimes[i] + " " + "</span>" + "<i onclick='deleteTime("+i+")' class='far fa-times-circle x'></i>" + "<br>";
+                tempClaimedArray1=claimedswitchtimes;
+            }
+            else{
+                //tempClaimedArray1[i]=claimedswitchtimes;
+                tempClaimedArray1[i] = "<span id='cSwitchTime"+i+"'> " + (i + 1) + ": " + claimedswitchtimes[i] + " " + "</span>" + "<i onclick='deleteTime("+i+")' class='far fa-times-circle x'></i>" + "<br>";
+            }
+        }
 
         removeZeros();
         $('#claimedtimes').html(tempClaimedArray1);

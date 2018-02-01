@@ -104,29 +104,22 @@ $(function() {
     	else {
         	claimedswitchtimes.push($("#stopwatch").text());
     	}
-        
-        // for (var i = p; i < claimedswitchtimes.length; i++){
-        //     for(var x = 0; x < 1; x++){
-        //         var temp = claimedswitchtimes[i];
-        //         if(temp.indexOf(":")!= -1){
-        //             console.log("working");
-        //             tempClaimedArray1[i] = claimedswitchtimes[i];
-        //         }
-        //         else{
-        //             tempClaimedArray1[i] = "<span id='cSwitchTime"+i+"'> " + (i + 1) + ": " + claimedswitchtimes[i] + " " + "</span>" + "<i onclick='deleteTime("+i+")' class='far fa-times-circle x'></i>" + "<br>";
-        //         }
-        //     }
-        //     p=i;
-        // }
 
         for (var i = 0; i < claimedswitchtimes.length; i++){
             if(claimedswitchtimes[i].indexOf(":")!=-1){
-                //tempClaimedArray1[i] = "<span id='cSwitchTime"+i+"'> " + (i + 1) + ": " + claimedswitchtimes[i] + " " + "</span>" + "<i onclick='deleteTime("+i+")' class='far fa-times-circle x'></i>" + "<br>";
                 tempClaimedArray1=claimedswitchtimes;
             }
             else{
-                //tempClaimedArray1[i]=claimedswitchtimes;
-                tempClaimedArray1[i] = "<span id='cSwitchTime"+i+"'> " + (i + 1) + ": " + claimedswitchtimes[i] + " " + "</span>" + "<i onclick='deleteTime("+i+")' class='far fa-times-circle x'></i>" + "<br>";
+                tempClaimedArray1[i] = "<span id='cSwitchTime"+i+"'> " + (i + 1) + ": " + claimedswitchtimes[i] + " " + "</span>" + "<i onclick='cDeleteTime1("+i+")' class='far fa-times-circle x'></i>" + "<br>";
+            }
+        }
+
+        for (var i = 0; i < failedswitchtimes.length; i++){
+            if(failedswitchtimes[i].indexOf(":")!=-1){
+                tempFailedArray1=failedswitchtimes;
+            }
+            else{
+                tempFailedArray1[i] = "<span id='fSwitchTime"+i+"'> " + (i + 1) + ": " + failedswitchtimes[i] + " " + "</span>" + "<i onclick='fDeleteTime1("+i+")' class='far fa-times-circle x'></i>" + "<br>";
             }
         }
 
@@ -163,9 +156,28 @@ $(function() {
     	else {
         	claimedscaletimes.push($("#stopwatch2").text());
     	}
+
+        for (var i = 0; i < claimedscaletimes.length; i++){
+            if(claimedscaletimes[i].indexOf(":")!=-1){
+                tempClaimedArray2=claimedscaletimes;
+            }
+            else{
+                tempClaimedArray2[i] = "<span id='cScaleTime"+i+"'> " + (i + 1) + ": " + claimedscaletimes[i] + " " + "</span>" + "<i onclick='cDeleteTime2("+i+")' class='far fa-times-circle x'></i>" + "<br>";
+            }
+        }
+
+        for (var i = 0; i < failedscaletimes.length; i++){
+            if(failedscaletimes[i].indexOf(":")!=-1){
+                tempFailedArray2=failedscaletimes;
+            }
+            else{
+                tempFailedArray2[i] = "<span id='fScaleTime"+i+"'> " + (i + 1) + ": " + failedscaletimes[i] + " " + "</span>" + "<i onclick='fDeleteTime2("+i+")' class='far fa-times-circle x'></i>" + "<br>";
+            }
+        }
+
         removeZeros();
-        $('#claimedtimes2').text(claimedscaletimes);
-        $('#failedtimes2').text(failedscaletimes);
+        $('#claimedtimes2').html(tempClaimedArray2);
+        $('#failedtimes2').html(tempFailedArray2);
         $(this).runner("reset");
         $("#startbutton2").text("Start");
     });
@@ -185,10 +197,28 @@ $(function() {
     });
 });
 
-function deleteTime(i){
+function cDeleteTime1(i){
     tempClaimedArray1.splice(i,1);
     claimedswitchtimes = tempClaimedArray1;
     $('#claimedtimes').html(tempClaimedArray1);
+}
+
+function fDeleteTime1(i){
+    tempFailedArray1.splice(i,1);
+    failedswitchtimes = tempFailedArray1;
+    $('#failedtimes').html(tempFailedArray1);
+}
+
+function cDeleteTime2(i){
+    tempClaimedArray2.splice(i,1);
+    claimedscaletimes = tempClaimedArray2;
+    $('#claimedtimes2').html(tempClaimedArray2);
+}
+
+function fDeleteTime2(i){
+    tempFailedArray2.splice(i,1);
+    failedscaletimes = tempFailedArray2;
+    $('#failedtimes2').html(tempFailedArray2);
 }
 /**FORM HANDLING**/
 

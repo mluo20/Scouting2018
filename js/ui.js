@@ -57,14 +57,13 @@ function menu() {
 /**STOPWATCH**/
 
 var claimedswitchtimes = [];
-//var tempClaimedArray1 = [];
+var tempClaimedArray1 = [];
 var failedswitchtimes = [];
 var tempFailedArray1 = [];
 var claimedscaletimes = [];
 var tempClaimedArray2 = [];
 var failedscaletimes = [];
 var tempFailedArray2 = [];
-var p =0;
 
 function removeZeros() {
     for (var i = 0; i < claimedswitchtimes.length; i++) {
@@ -106,22 +105,10 @@ $(function() {
     	}
 
         for (var i = 0; i < claimedswitchtimes.length; i++){
-            // var p = 0;
-            // for(p; p<claimedswitchtimes.length; p++){
-            //     if(claimedswitchtimes[p].indexOf(p + ":")!=-1){
-            //         console.log("hjehjee");
-            //     }
-            //     else{
-            //         console.log(p);
-            //     }
-            // }
-            tempClaimedArray1=claimedswitchtimes;
-            console.log(tempClaimedArray1);
             if(claimedswitchtimes[i].indexOf(":")!=-1){
                 tempClaimedArray1=claimedswitchtimes;
             }
             else{
-<<<<<<< HEAD
                 tempClaimedArray1[i] = "<span id='cSwitchTime"+i+"'> " + (i + 1) + ": " + claimedswitchtimes[i] + " " + "</span>" + "<i onclick='cDeleteTime1("+i+")' class='far fa-times-circle x'></i>" + "<br>";
             }
         }
@@ -132,10 +119,6 @@ $(function() {
             }
             else{
                 tempFailedArray1[i] = "<span id='fSwitchTime"+i+"'> " + (i + 1) + ": " + failedswitchtimes[i] + " " + "</span>" + "<i onclick='fDeleteTime1("+i+")' class='far fa-times-circle x'></i>" + "<br>";
-=======
-                //tempClaimedArray1[i]=claimedswitchtimes;
-                tempClaimedArray1[i] = "<span id='cSwitchTime"+i+"'> " + (i+1) + ": " + claimedswitchtimes[i] + " " + "</span>" + "<i onclick='deleteTime("+i+")' class='far fa-times-circle x'></i>" + "<br>";
->>>>>>> f887ff46fe5d487fed0e7ce90e3cc6a81b2d5265
             }
         }
 
@@ -213,17 +196,11 @@ $(function() {
     });
 });
 
-<<<<<<< HEAD
+
 function cDeleteTime1(i){
     tempClaimedArray1.splice(i,1);
     claimedswitchtimes = tempClaimedArray1;
     $('#claimedtimes').html(tempClaimedArray1);
-=======
-function deleteTime(i){
-    claimedswitchtimes.splice(i,1);
-    // claimedswitchtimes = tempClaimedArray1;
-    $('#claimedtimes').html(claimedswitchtimes);
->>>>>>> f887ff46fe5d487fed0e7ce90e3cc6a81b2d5265
 }
 
 function fDeleteTime1(i){
